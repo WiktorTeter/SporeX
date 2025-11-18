@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.SPOREX_App" parent="android:Theme.Material.Light.NoActionBar" />
+<!--    <style name="Theme.SPOREX_App" parent="android:Theme.Material.Light.NoActionBar" />-->
+
+    <style name="Theme.SPOREX_App" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Optional: make status bar transparent for edge-to-edge -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- SPLASH THEME -->
+    <style name="Theme.SPOREX.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/sporex_white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/textlogo</item>
+        <item name="windowSplashScreenAnimationDuration">800</item>
+
+        <!-- Theme applied after splash -->
+        <item name="postSplashScreenTheme">@style/Theme.SPOREX_App</item>
+    </style>
+
+
 </resources>

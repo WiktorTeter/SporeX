@@ -12,9 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        //splash install :3
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
@@ -29,6 +34,8 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
