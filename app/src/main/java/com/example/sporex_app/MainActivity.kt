@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             SPOREX_AppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "SPOREX",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
