@@ -11,11 +11,12 @@
     <!-- SPLASH THEME -->
     <style name="Theme.SPOREX.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/sporex_white</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/textlogo</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
         <item name="windowSplashScreenAnimationDuration">800</item>
-
-        <!-- Theme applied after splash -->
         <item name="postSplashScreenTheme">@style/Theme.SPOREX_App</item>
+
+<!--    &lt;!&ndash; Theme applied after splash &ndash;&gt;-->
+<!--        <item name="postSplashScreenTheme">@style/Theme.SPOREX_App</item>-->
     </style>
 
 
