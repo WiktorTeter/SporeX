@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SPOREX_App">
         <activity android:name=".UploadActivity" />
+        <activity android:name=".ConfirmationActivity" />
+        <activity android:name=".ResultActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

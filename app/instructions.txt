@@ -1,0 +1,7 @@
+In Android Studio, open:
+View → Tool Windows → Device File Explorer
+Navigate to: /sdcard/Pictures/
+Right-click inside the folder → Upload…
+Choose an image from your computer.
+Launch your app and select the image from sd3495355 (whatever number it is, it will be under 'Pictures'
+After this it will show up in emulator everytime you launch this specific virtual device

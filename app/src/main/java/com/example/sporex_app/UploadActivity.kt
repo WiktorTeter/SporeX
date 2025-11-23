@@ -1,5 +1,6 @@
 package com.example.sporex_app
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -25,14 +26,23 @@ class UploadActivity : ComponentActivity() {
 
         setContent {
             UploadScreen(
-                onBack = { finish() }
+                onBack = { finish() },
+                onNext = { uri ->
+                    val intent = Intent(this, ConfirmationActivity::class.java)
+                    intent.putExtra("imageUri", uri.toString())
+                    startActivity(intent)
+                }
             )
         }
     }
 }
 
+
 @Composable
-fun UploadScreen(onBack: () -> Unit) {
+fun UploadScreen(
+    onBack: () -> Unit,
+    onNext: (Uri) -> Unit
+) {
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
 
     val launcher = rememberLauncherForActivityResult(
@@ -72,9 +82,21 @@ fun UploadScreen(onBack: () -> Unit) {
                     .clip(RoundedCornerShape(12.dp)),
                 contentScale = ContentScale.Crop
             )
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Button(
+                onClick = { onNext(uri) },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Black,
+                    contentColor = Color.White
+                )
+            ) {
+                Text("Next")
+            }
         }
 
-        Spacer(Modifier.height(20.dp))
+    Spacer(Modifier.height(20.dp))
 
         Button(onClick = { launcher.launch("image/*")
         },
