@@ -11,8 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SPOREX_App">
+        <activity android:name=".UploadActivity" />
+        <activity android:name=".ConfirmationActivity" />
+        <activity android:name=".ResultActivity" />
 
-        <!-- LOGIN SCREEN: Launcher activity -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">

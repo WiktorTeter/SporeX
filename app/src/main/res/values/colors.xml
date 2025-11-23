@@ -7,5 +7,5 @@
     <color name="teal_700">#FF018786</color>
     <color name="sporex_black">#040F0F</color>
     <color name="sporex_green">#06A546</color>
-    <color name="sporex_white">#06A546</color>
+    <color name="sporex_white">#FFFFFFFF</color>
 </resources>
