@@ -1,0 +1,412 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:2:1-38:12
+MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7e9a28baface4a49d05d2c274ac939a6\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:17:1-24:12
+MERGED from [io.coil-kt:coil-compose:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ff49a247a47f7f66271f7a72a93354f0\transformed\coil-compose-2.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-compose-base:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\410faa96ccc3415f3cb2d821b987a014\transformed\coil-compose-base-2.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3e9f3ab7f3f0db7349cffaebe0c2cee6\transformed\coil-2.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-base:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\dd27be7b219b0c9a1065687d08e4ab5e\transformed\coil-base-2.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\26ef3ddf88e786d7a4f884a833106006\transformed\appcompat-resources-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.7.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d540de50178a3152290942170496bc06\transformed\appcompat-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\757ab981454c0b4f393bfa94e231097d\transformed\material3-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3890cb395d7d41f40b99c8f9d48c7d59\transformed\material-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\50b18a9a753eee7e349b66167a0c1afb\transformed\animation-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\e33293a05a5ca57f595a6bdb0849123d\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8d931f49ed8a6ec139b7f5d950d80b87\transformed\animation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\f42dca2714f1b033ef54e5028fe669f7\transformed\foundation-layout-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d0a2534b7cab4e5860a9cae3e378cbfd\transformed\foundation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1b29166a69006ad21c340559db29babd\transformed\ui-tooling-data-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\b9a06133bfeb1a5bb57b34d4fdc4a4f3\transformed\ui-unit-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d9ca4ef01d325ec59b5e0f0a6710f108\transformed\ui-geometry-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\56fd68092838e5cffa70ebecc8698c80\transformed\ui-util-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d76634e82f6e634a48eceaf06408fb57\transformed\ui-text-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7e1a71d6b90d046454a471bcf0c8e44b\transformed\ui-tooling-preview-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0e9124b46e7525d062abc3526cbc98d7\transformed\ui-tooling-release\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\25b7fb2fcb167d47ba343d41359161bd\transformed\ui-graphics-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d625d970d3c4b33b691205fb0bfc6ed1\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.30.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\f1da36624eec3b152f2e68754a9feae6\transformed\accompanist-drawablepainter-0.30.1\AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\5a3fc565e635360aede7351ecb5f3c70\transformed\fragment-1.5.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\af459f87431fa7c8feee7c424898f2c9\transformed\activity-1.8.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\753d42ee50db8771df1d5a554754c67b\transformed\activity-ktx-1.8.2\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1c1311a2f4f82d2360f96e94f10a71e5\transformed\activity-compose-1.8.2\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\81d19f6eff138ecac8040e936b49e6a3\transformed\material-icons-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\4d433ae74a41e14370e0b9774d2b4a89\transformed\ui-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7bb5ac35db2bec7609d994c8cd69e438\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\c9a0ce843c20ad815ad24103880c6c8c\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d3e3d4356babd52fa4535c4966991661\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\292722b100429b51352ec1a9ccf0e527\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d022260bf01ed3e971db802e01d926f4\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\80d00ce59ab0b24e9c86ea62a4542c8d\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\04dbf2e7a762db621d380590c14276b1\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\eceac33a84a804a22944a6f8796fac30\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8b9a3fdd62ce49ae1b05a222c78dbe3e\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\5e7415b54560a70ddf673e283ccfb7ba\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\256e86903c2e6b2bfc72862ca5df7187\transformed\core-ktx-1.13.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\738df1dbccfcd9553ecee0da2be4fdd3\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\228388a38364742f44ba7cd1cbe7b806\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1790dffb547c1dce5be35962d1484944\transformed\lifecycle-viewmodel-2.8.3\AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d6f01233e547de97a2b078ead8b31d5e\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\850479db83dca0cb2ca386debf406efa\transformed\lifecycle-livedata-core-ktx-2.8.3\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\16f9e4c4988e6caf437e08320f78e76f\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3e417a2fd4f62bfe7f971132733f7eb1\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8314642cd0d2f989feea309e36329a92\transformed\lifecycle-viewmodel-savedstate-2.8.3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\2fe23aa102221c0ed2caa3a6325e188e\transformed\lifecycle-viewmodel-ktx-2.8.3\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d94bfe8f52c67a75d2b8d119cf5d41da\transformed\lifecycle-livedata-core-2.8.3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0bff4f08223e740cb8a9db8a473177cd\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\dfe0294e0664b5dad6d58ea3c534595f\transformed\lifecycle-livedata-2.8.3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\27eca3c330e29ed9cce87cb84f1bd33a\transformed\runtime-saveable-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8674f1df130ef5eefe1e205aba195dfa\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ab6a8e9db22f879ac2ee113e877db59d\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\71120d61f4a0a2c8f2139b489dc3d49d\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ae8d86cf399d1a9a030a0ab44303cda3\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\af71bdb7a5243ef1773840d365974c8b\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0869fc869f9b433e3d6413af04580a82\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\224e33e5995ba49c74d56263e7bb235b\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\310140bace1d8147ef415b58f2724261\transformed\exifinterface-1.3.6\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ba6e2ed67d1937faf13ea26913a2d03c\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:5:22-64
+application
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:7:5-36:19
+INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:7:5-36:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0e9124b46e7525d062abc3526cbc98d7\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0e9124b46e7525d062abc3526cbc98d7\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d625d970d3c4b33b691205fb0bfc6ed1\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d625d970d3c4b33b691205fb0bfc6ed1\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\71120d61f4a0a2c8f2139b489dc3d49d\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\71120d61f4a0a2c8f2139b489dc3d49d\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0869fc869f9b433e3d6413af04580a82\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0869fc869f9b433e3d6413af04580a82\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:14:9-41
+	android:fullBackupContent
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:12:9-54
+	android:roundIcon
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:15:9-54
+	android:icon
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:13:9-43
+	android:allowBackup
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:8:9-35
+	android:theme
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:17:9-48
+	android:networkSecurityConfig
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:9:9-69
+	android:dataExtractionRules
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:11:9-65
+	android:usesCleartextTraffic
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:10:9-44
+activity#com.example.sporex_app.UploadActivity
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:18:9-52
+	android:name
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:18:19-49
+activity#com.example.sporex_app.ConfirmationActivity
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:19:9-58
+	android:name
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:19:19-55
+activity#com.example.sporex_app.ResultActivity
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:20:9-52
+	android:name
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:20:19-49
+activity#com.example.sporex_app.LoginActivity
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:22:9-29:20
+	android:exported
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:24:13-36
+	android:name
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:23:13-42
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:25:13-28:29
+action#android.intent.action.MAIN
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:26:17-69
+	android:name
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:26:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:27:17-77
+	android:name
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:27:27-74
+activity#com.example.sporex_app.MainActivity
+ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:32:9-35:58
+	android:exported
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:34:13-36
+	android:theme
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:35:13-55
+	android:name
+		ADDED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml:33:13-41
+uses-sdk
+INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml
+INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml
+MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7e9a28baface4a49d05d2c274ac939a6\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7e9a28baface4a49d05d2c274ac939a6\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:20:5-22:41
+MERGED from [io.coil-kt:coil-compose:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ff49a247a47f7f66271f7a72a93354f0\transformed\coil-compose-2.4.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ff49a247a47f7f66271f7a72a93354f0\transformed\coil-compose-2.4.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\410faa96ccc3415f3cb2d821b987a014\transformed\coil-compose-base-2.4.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\410faa96ccc3415f3cb2d821b987a014\transformed\coil-compose-base-2.4.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3e9f3ab7f3f0db7349cffaebe0c2cee6\transformed\coil-2.4.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3e9f3ab7f3f0db7349cffaebe0c2cee6\transformed\coil-2.4.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\dd27be7b219b0c9a1065687d08e4ab5e\transformed\coil-base-2.4.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\dd27be7b219b0c9a1065687d08e4ab5e\transformed\coil-base-2.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\26ef3ddf88e786d7a4f884a833106006\transformed\appcompat-resources-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\26ef3ddf88e786d7a4f884a833106006\transformed\appcompat-resources-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d540de50178a3152290942170496bc06\transformed\appcompat-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d540de50178a3152290942170496bc06\transformed\appcompat-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\757ab981454c0b4f393bfa94e231097d\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\757ab981454c0b4f393bfa94e231097d\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3890cb395d7d41f40b99c8f9d48c7d59\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3890cb395d7d41f40b99c8f9d48c7d59\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\50b18a9a753eee7e349b66167a0c1afb\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\50b18a9a753eee7e349b66167a0c1afb\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\e33293a05a5ca57f595a6bdb0849123d\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\e33293a05a5ca57f595a6bdb0849123d\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8d931f49ed8a6ec139b7f5d950d80b87\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8d931f49ed8a6ec139b7f5d950d80b87\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\f42dca2714f1b033ef54e5028fe669f7\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\f42dca2714f1b033ef54e5028fe669f7\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d0a2534b7cab4e5860a9cae3e378cbfd\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d0a2534b7cab4e5860a9cae3e378cbfd\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1b29166a69006ad21c340559db29babd\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1b29166a69006ad21c340559db29babd\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\b9a06133bfeb1a5bb57b34d4fdc4a4f3\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\b9a06133bfeb1a5bb57b34d4fdc4a4f3\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d9ca4ef01d325ec59b5e0f0a6710f108\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d9ca4ef01d325ec59b5e0f0a6710f108\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\56fd68092838e5cffa70ebecc8698c80\transformed\ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\56fd68092838e5cffa70ebecc8698c80\transformed\ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d76634e82f6e634a48eceaf06408fb57\transformed\ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d76634e82f6e634a48eceaf06408fb57\transformed\ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7e1a71d6b90d046454a471bcf0c8e44b\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7e1a71d6b90d046454a471bcf0c8e44b\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0e9124b46e7525d062abc3526cbc98d7\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0e9124b46e7525d062abc3526cbc98d7\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\25b7fb2fcb167d47ba343d41359161bd\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\25b7fb2fcb167d47ba343d41359161bd\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d625d970d3c4b33b691205fb0bfc6ed1\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d625d970d3c4b33b691205fb0bfc6ed1\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.30.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\f1da36624eec3b152f2e68754a9feae6\transformed\accompanist-drawablepainter-0.30.1\AndroidManifest.xml:21:5-23:42
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.30.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\f1da36624eec3b152f2e68754a9feae6\transformed\accompanist-drawablepainter-0.30.1\AndroidManifest.xml:21:5-23:42
+MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\5a3fc565e635360aede7351ecb5f3c70\transformed\fragment-1.5.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\5a3fc565e635360aede7351ecb5f3c70\transformed\fragment-1.5.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\af459f87431fa7c8feee7c424898f2c9\transformed\activity-1.8.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\af459f87431fa7c8feee7c424898f2c9\transformed\activity-1.8.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\753d42ee50db8771df1d5a554754c67b\transformed\activity-ktx-1.8.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\753d42ee50db8771df1d5a554754c67b\transformed\activity-ktx-1.8.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1c1311a2f4f82d2360f96e94f10a71e5\transformed\activity-compose-1.8.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.2] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1c1311a2f4f82d2360f96e94f10a71e5\transformed\activity-compose-1.8.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\81d19f6eff138ecac8040e936b49e6a3\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\81d19f6eff138ecac8040e936b49e6a3\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\4d433ae74a41e14370e0b9774d2b4a89\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\4d433ae74a41e14370e0b9774d2b4a89\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7bb5ac35db2bec7609d994c8cd69e438\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7bb5ac35db2bec7609d994c8cd69e438\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\c9a0ce843c20ad815ad24103880c6c8c\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\c9a0ce843c20ad815ad24103880c6c8c\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d3e3d4356babd52fa4535c4966991661\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d3e3d4356babd52fa4535c4966991661\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\292722b100429b51352ec1a9ccf0e527\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\292722b100429b51352ec1a9ccf0e527\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d022260bf01ed3e971db802e01d926f4\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d022260bf01ed3e971db802e01d926f4\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\80d00ce59ab0b24e9c86ea62a4542c8d\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\80d00ce59ab0b24e9c86ea62a4542c8d\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\04dbf2e7a762db621d380590c14276b1\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\04dbf2e7a762db621d380590c14276b1\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\eceac33a84a804a22944a6f8796fac30\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\eceac33a84a804a22944a6f8796fac30\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8b9a3fdd62ce49ae1b05a222c78dbe3e\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8b9a3fdd62ce49ae1b05a222c78dbe3e\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\5e7415b54560a70ddf673e283ccfb7ba\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\5e7415b54560a70ddf673e283ccfb7ba\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\256e86903c2e6b2bfc72862ca5df7187\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\256e86903c2e6b2bfc72862ca5df7187\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\738df1dbccfcd9553ecee0da2be4fdd3\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\738df1dbccfcd9553ecee0da2be4fdd3\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\228388a38364742f44ba7cd1cbe7b806\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\228388a38364742f44ba7cd1cbe7b806\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1790dffb547c1dce5be35962d1484944\transformed\lifecycle-viewmodel-2.8.3\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\1790dffb547c1dce5be35962d1484944\transformed\lifecycle-viewmodel-2.8.3\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d6f01233e547de97a2b078ead8b31d5e\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d6f01233e547de97a2b078ead8b31d5e\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\850479db83dca0cb2ca386debf406efa\transformed\lifecycle-livedata-core-ktx-2.8.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\850479db83dca0cb2ca386debf406efa\transformed\lifecycle-livedata-core-ktx-2.8.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\16f9e4c4988e6caf437e08320f78e76f\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\16f9e4c4988e6caf437e08320f78e76f\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3e417a2fd4f62bfe7f971132733f7eb1\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\3e417a2fd4f62bfe7f971132733f7eb1\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8314642cd0d2f989feea309e36329a92\transformed\lifecycle-viewmodel-savedstate-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8314642cd0d2f989feea309e36329a92\transformed\lifecycle-viewmodel-savedstate-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\2fe23aa102221c0ed2caa3a6325e188e\transformed\lifecycle-viewmodel-ktx-2.8.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\2fe23aa102221c0ed2caa3a6325e188e\transformed\lifecycle-viewmodel-ktx-2.8.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d94bfe8f52c67a75d2b8d119cf5d41da\transformed\lifecycle-livedata-core-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d94bfe8f52c67a75d2b8d119cf5d41da\transformed\lifecycle-livedata-core-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0bff4f08223e740cb8a9db8a473177cd\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0bff4f08223e740cb8a9db8a473177cd\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\dfe0294e0664b5dad6d58ea3c534595f\transformed\lifecycle-livedata-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\dfe0294e0664b5dad6d58ea3c534595f\transformed\lifecycle-livedata-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\27eca3c330e29ed9cce87cb84f1bd33a\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\27eca3c330e29ed9cce87cb84f1bd33a\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8674f1df130ef5eefe1e205aba195dfa\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\8674f1df130ef5eefe1e205aba195dfa\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ab6a8e9db22f879ac2ee113e877db59d\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ab6a8e9db22f879ac2ee113e877db59d\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\71120d61f4a0a2c8f2139b489dc3d49d\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\71120d61f4a0a2c8f2139b489dc3d49d\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ae8d86cf399d1a9a030a0ab44303cda3\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ae8d86cf399d1a9a030a0ab44303cda3\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\af71bdb7a5243ef1773840d365974c8b\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\af71bdb7a5243ef1773840d365974c8b\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0869fc869f9b433e3d6413af04580a82\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0869fc869f9b433e3d6413af04580a82\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\224e33e5995ba49c74d56263e7bb235b\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\224e33e5995ba49c74d56263e7bb235b\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\310140bace1d8147ef415b58f2724261\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\310140bace1d8147ef415b58f2724261\transformed\exifinterface-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ba6e2ed67d1937faf13ea26913a2d03c\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\ba6e2ed67d1937faf13ea26913a2d03c\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml
+	tools:ignore
+		ADDED from [com.google.accompanist:accompanist-drawablepainter:0.30.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\f1da36624eec3b152f2e68754a9feae6\transformed\accompanist-drawablepainter-0.30.1\AndroidManifest.xml:23:9-39
+	android:minSdkVersion
+		INJECTED from D:\Year4CollabProject\app\src\main\AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0e9124b46e7525d062abc3526cbc98d7\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0e9124b46e7525d062abc3526cbc98d7\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0e9124b46e7525d062abc3526cbc98d7\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d625d970d3c4b33b691205fb0bfc6ed1\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d625d970d3c4b33b691205fb0bfc6ed1\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.7.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\d625d970d3c4b33b691205fb0bfc6ed1\transformed\ui-test-manifest-1.7.0\AndroidManifest.xml:24:13-63
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0869fc869f9b433e3d6413af04580a82\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\0869fc869f9b433e3d6413af04580a82\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\498b87d6845f50686ad0660230e3cf93\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+permission#com.example.sporex_app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+uses-permission#com.example.sporex_app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\00b25a55b1b228b8c7aafcd9f5834218\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\7d32f1f5dc4bc03a88a02fb8983812aa\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\DIANE J DALYOP\.gradle\caches\8.13\transforms\fb7dc4712787cfdf9eb717ab313df511\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
