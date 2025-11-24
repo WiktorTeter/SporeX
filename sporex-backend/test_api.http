@@ -1,0 +1,21 @@
+### HEALTH CHECK
+GET http://localhost:5000/api/health
+
+### REGISTER USER
+POST http://localhost:5000/api/register
+Content-Type: application/json
+
+{
+    "email": "test@sporex.com",
+    "password": "123456",
+    "name": "Test User"
+}
+
+### LOGIN USER
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+    "email": "test@sporex.com",
+    "password": "123456"
+}
