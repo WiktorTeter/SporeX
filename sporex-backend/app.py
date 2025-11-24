@@ -11,8 +11,8 @@ from pymongo import MongoClient
 
 load_dotenv()
 
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
-DB_NAME = "SporexDB"
+MONGO_URI = os.getenv("MONGODB_URI")
+DB_NAME = os.getenv("MONGODB_DB_NAME")
 
 client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
