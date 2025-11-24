@@ -15,7 +15,7 @@ SporeX is a mold detection and prevention system that combines image recognition
 # 👷 SporeX — Developer Setup Guide
 
 *Backend: FastAPI • Frontend: Android Studio • Database: MongoDB Atlas*
-
+ 
 ---
 
 ## 📦 1. Clone the Repository
