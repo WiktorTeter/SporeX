@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+# Env files
+*.env
+.env
+sporex-backend/.env
