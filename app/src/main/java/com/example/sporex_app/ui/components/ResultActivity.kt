@@ -1,22 +1,29 @@
-package com.example.sporex_app
+package com.example.sporex_app.ui.components
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import com.example.sporex_app.ui.navigation.BottomNavBar
 
 class ResultActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            MoldResultScreen()
+            Scaffold(
+                bottomBar = { BottomNavBar(currentScreen = "camera") }
+            ) { paddingValues ->
+                MoldResultScreen()
+            }
         }
     }
 }
@@ -31,6 +38,7 @@ fun MoldResultScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .background(Color(0xFF06A546))
             .padding(24.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -52,7 +60,11 @@ fun MoldResultScreen() {
 
             Button(
                 onClick = { showDetails = true },
-                colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Black,
+                    contentColor = Color.White
+                )
+
             ) {
                 Text("View Details")
             }
@@ -66,6 +78,7 @@ fun MoldResultScreen() {
         ) {
             Column(
                 modifier = Modifier
+                    .background(Color(0xFF06A546))
                     .fillMaxWidth()
                     .padding(20.dp)
             ) {
@@ -101,13 +114,15 @@ fun MoldResultScreen() {
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Button(
-                    onClick = {
-                        showMockTest = true
-                    },
-                    colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
+                    onClick = { showMockTest = true },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.Black,
+                        contentColor = Color.White
+                    )
                 ) {
                     Text("Run Mock Air Quality Test")
                 }
+
 
                 Spacer(modifier = Modifier.height(24.dp))
             }

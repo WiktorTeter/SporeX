@@ -1,6 +1,5 @@
-package com.example.sporex_app
+package com.example.sporex_app.ui.useraccount
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -16,6 +15,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.Color
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
 import androidx.lifecycle.lifecycleScope
+import com.example.sporex_app.MainActivity
 import com.example.sporex_app.network.LoginRequest
 import com.example.sporex_app.network.RetrofitClient
 import kotlinx.coroutines.launch
