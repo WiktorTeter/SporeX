@@ -15,24 +15,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SPOREX_App">
-        <activity android:name=".UploadActivity" />
-        <activity android:name=".ConfirmationActivity" />
-        <activity android:name=".ResultActivity" />
+
+        <activity android:name=".ui.components.UploadActivity" />
+        <activity android:name=".ui.components.ConfirmationActivity" />
+        <activity android:name=".ui.components.ResultActivity" />
+        <activity android:name=".ui.useraccount.LoginActivity" />
+
+<!--        updated sorry but this is the original login code wiktor/diane had-->
+<!--        <activity-->
+<!--            android:name=".ui.useraccount.LoginActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
 
         <activity
-            android:name=".LoginActivity"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SPOREX.Splash">
+
+            <!-- Make MAIN ACTIVITY the launcher -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
-        <!-- MAIN SCREEN -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.SPOREX.Splash" />
+
+
+
+<!--        &lt;!&ndash; MAIN SCREEN &ndash;&gt;-->
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="true"-->
+<!--            android:theme="@style/Theme.SPOREX.Splash" />-->
     </application>
 
 </manifest>
