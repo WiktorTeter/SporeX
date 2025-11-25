@@ -17,3 +17,4 @@ local.properties
 *.env
 .env
 sporex-backend/.env
+venv
