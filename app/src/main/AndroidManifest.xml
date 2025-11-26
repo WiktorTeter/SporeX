@@ -20,7 +20,9 @@
         <activity android:name=".ui.components.UploadActivity" />
         <activity android:name=".ui.components.ConfirmationActivity" />
         <activity android:name=".ui.components.ResultActivity" />
-<!--        <activity android:name=".ui.useraccount.LoginActivity" />-->
+        <activity android:name=".ui.useraccount.LoginActivity" />
+
+        <!--        <activity android:name=".ui.useraccount.LoginActivity" />-->
 
         <!--        updated sorry but this is the original login code wiktor/diane had-->
         <!--        <activity-->
@@ -32,18 +34,19 @@
         <!--            </intent-filter>-->
         <!--        </activity>-->
 
+<!--        android:name=".ui.useraccount.LoginActivity"-->
         <activity
-            android:name=".ui.useraccount.LoginActivity"
+            android:name=".ui.useraccount.RegisterActivity"
             android:exported="true"
-            android:theme="@style/Theme.SPOREX.Splash">
+            android:theme="@style/Theme.SPOREX_App">
 
-            <!-- Make MAIN ACTIVITY the launcher -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
+
 
 
 
