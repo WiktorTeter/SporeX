@@ -6,6 +6,23 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, EmailStr
 from pymongo import MongoClient
+from passlib.context import CryptContext
+from datetime import datetime, timezone
+
+# ---------- Password hashing utils ----------
+
+# Use PBKDF2-SHA256 instead of bcrypt to avoid backend issues
+pwd_context = CryptContext(
+    schemes=["pbkdf2_sha256"],
+    deprecated="auto",
+)
+
+def hash_password(password: str) -> str:
+    return pwd_context.hash(password)
+
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    return pwd_context.verify(plain_password, hashed_password)
 
 # ---------- Config ----------
 
@@ -37,6 +54,7 @@ app.add_middleware(
 class RegisterBody(BaseModel):
     email: EmailStr
     password: str
+    username: str | None = None
     name: str | None = None
 
 
@@ -65,42 +83,59 @@ async def register(body: RegisterBody):
     """
     Register a new user.
 
-    Keeps the same behaviour/JSON shape you had in Flask so
-    Android code doesn't need to change.
+    - Checks for existing email
+    - Hashes password
+    - Inserts document that matches MongoDB validator
     """
-    # Check if user exists
+
+    # 1) Check if a user with this email already exists
     if users_col.find_one({"email": body.email}):
         return JSONResponse(
             status_code=409,
             content={"success": False, "message": "User already exists"},
         )
 
-    # For MVP we still store plain password (you can hash later)
-    users_col.insert_one(
-        {
-            "email": body.email,
-            "password": body.password,
-            "name": body.name,
-        }
-    )
+    # 2) Decide username (either from body or from email prefix)
+    username = body.username or body.email.split("@")[0]
 
+    # 3) Hash the password
+    password_hash = hash_password(body.password)
+
+    # 4) Build document that satisfies the collection validator
+    user_doc = {
+        "email": body.email,
+        "username": username,
+        "password_hash": password_hash,
+        "role": "member",                 # default role
+        "status": "active",               # default status
+        "created_at": datetime.now(timezone.utc),
+    }
+
+    # Optional extra field, not part of the validator but allowed
+    if body.name:
+        user_doc["name"] = body.name
+
+    # 5) Insert into Mongo
+    users_col.insert_one(user_doc)
+
+    # 6) Response shape friendly to Android
     return {"success": True, "message": "User registered"}
 
 
 @app.post("/api/login")
 async def login(body: LoginBody):
-    """
-    Log in an existing user.
-    """
-    user = users_col.find_one(
-        {"email": body.email, "password": body.password}
-    )
+    user = users_col.find_one({"email": body.email})
 
     if not user:
         return JSONResponse(
             status_code=401,
-            content={"success": False, "message": "Invalid email or password"},
+            content={"success": False, "message": "Invalid credentials"},
         )
 
-    # Later you can return a token or user info here.
+    if not verify_password(body.password, user["password_hash"]):
+        return JSONResponse(
+            status_code=401,
+            content={"success": False, "message": "Invalid credentials"},
+        )
+
     return {"success": True, "message": "Login OK"}
