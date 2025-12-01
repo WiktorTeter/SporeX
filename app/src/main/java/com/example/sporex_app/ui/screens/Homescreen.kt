@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun HomeScreen(
+    modifier: Modifier = Modifier,
     onUploadClick: () -> Unit
 ) {
     Column(

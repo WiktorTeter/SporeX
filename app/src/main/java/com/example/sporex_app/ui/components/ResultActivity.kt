@@ -22,147 +22,96 @@ class ResultActivity : ComponentActivity() {
             Scaffold(
                 bottomBar = { BottomNavBar(currentScreen = "camera") }
             ) { paddingValues ->
-                MoldResultScreen()
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun MoldResultScreen() {
-
-    var showDetails by remember { mutableStateOf(false) }
-    var showMockTest by remember { mutableStateOf(false) }
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFF06A546))
-            .padding(24.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-
-            Text(
-                text = "SPOREX Analysis Complete",
-                style = MaterialTheme.typography.headlineSmall
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = "Your photo shows an estimated **65% likelihood** of *Cladosporium* mold.",
-                style = MaterialTheme.typography.bodyLarge
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Button(
-                onClick = { showDetails = true },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Black,
-                    contentColor = Color.White
+                MoldResultScreen(
+                    modifier = Modifier.padding(paddingValues)
                 )
-
-            ) {
-                Text("View Details")
             }
         }
     }
 
-    // ---------- MODAL BOTTOM SHEET ----------
-    if (showDetails) {
-        ModalBottomSheet(
-            onDismissRequest = { showDetails = false }
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun MoldResultScreen(modifier: Modifier = Modifier) {
+
+        var showDetails by remember { mutableStateOf(false) }
+        var showMockTest by remember { mutableStateOf(false) }
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFF06A546))
+                .padding(24.dp),
+            contentAlignment = Alignment.Center
         ) {
-            Column(
-                modifier = Modifier
-                    .background(Color(0xFF06A546))
-                    .fillMaxWidth()
-                    .padding(20.dp)
-            ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
                 Text(
-                    text = "Cladosporium Details",
+                    text = "SPOREX Analysis Complete",
                     style = MaterialTheme.typography.headlineSmall
                 )
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    "• Common indoor mold often found on walls, ceilings, and damp surfaces.\n" +
-                            "• Can cause allergies, coughing, and irritation in sensitive individuals.\n" +
-                            "• Thrives in humid or poorly ventilated areas.\n" +
-                            "• Recommended action: Improve ventilation, clean affected areas, and monitor for growth."
+                    text = "Your photo shows an estimated **65% likelihood** of *Cladosporium* mold.",
+                    style = MaterialTheme.typography.bodyLarge
                 )
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                Text(
-                    "Risk Assessment",
-                    style = MaterialTheme.typography.titleMedium
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text("• Exposure Risk: Moderate")
-                Text("• Growth Rate: Medium")
-                Text("• Surface Penetration: Low")
-                Text("• Recommended Testing: Air Quality Test")
 
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Button(
-                    onClick = { showMockTest = true },
+                    onClick = { showDetails = true },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Black,
                         contentColor = Color.White
                     )
+
                 ) {
-                    Text("Run Mock Air Quality Test")
+                    Text("View Details")
                 }
-
-
-                Spacer(modifier = Modifier.height(24.dp))
             }
         }
-    }
 
-    // ---------- MOCK TEST POPUP ----------
-    if (showMockTest) {
-        Dialog(onDismissRequest = { showMockTest = false }) {
-            Surface(
-                shape = MaterialTheme.shapes.medium,
-                tonalElevation = 6.dp,
-                modifier = Modifier
-                    .padding(20.dp)
-                    .fillMaxWidth()
+        if (showDetails) {
+            ModalBottomSheet(
+                onDismissRequest = { showDetails = false }
             ) {
                 Column(
-                    modifier = Modifier.padding(20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    modifier = Modifier
+                        .background(Color(0xFF06A546))
+                        .fillMaxWidth()
+                        .padding(20.dp)
                 ) {
+
                     Text(
-                        text = "Mock Air Quality Test",
+                        text = "Cladosporium Details",
                         style = MaterialTheme.typography.headlineSmall
                     )
 
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(12.dp))
 
                     Text(
-                        "Simulated airborne spore concentration detected:\n\n" +
-                                "• Spore Density: 182 spores/m³\n" +
-                                "• Threshold: 150 spores/m³\n" +
-                                "• Status: Slightly Elevated\n\n" +
-                                "Recommendation: Increase ventilation and consider HEPA filtration."
+                        "• Common indoor mold often found on walls, ceilings, and damp surfaces.\n" +
+                                "• Can cause allergies, coughing, and irritation in sensitive individuals.\n" +
+                                "• Thrives in humid or poorly ventilated areas.\n" +
+                                "• Recommended action: Improve ventilation, clean affected areas, and monitor for growth."
                     )
 
                     Spacer(modifier = Modifier.height(24.dp))
 
-                    Button(onClick = { showMockTest = false }) {
-                        Text("Close")
-                    }
+                    Text(
+                        "Risk Assessment",
+                        style = MaterialTheme.typography.titleMedium
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text("• Exposure Risk: Moderate")
+                    Text("• Growth Rate: Medium")
+                    Text("• Surface Penetration: Low")
+                    Text("• Recommended Testing: Air Quality Test")
+
+                    Spacer(modifier = Modifier.height(24.dp))
                 }
             }
         }
