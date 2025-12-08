@@ -2,92 +2,53 @@ package com.example.sporex_app.ui.useraccount
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
-import androidx.lifecycle.lifecycleScope
-import com.example.sporex_app.MainActivity
-import com.example.sporex_app.network.LoginRequest
-import com.example.sporex_app.network.RetrofitClient
-import kotlinx.coroutines.launch
 
-class LoginActivity : ComponentActivity() {
-
+class RegisterActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SPOREX_AppTheme {
-            LoginScreen()
-            }
-        }
-    }
-
-    // Called from the composable
-    fun performLogin(
-        email: String,
-        password: String,
-        onResult: (Boolean, String) -> Unit
-    ) {
-        lifecycleScope.launch {
-            try {
-                val response = RetrofitClient.api.login(LoginRequest(email, password))
-
-                if (response.isSuccessful && response.body()?.success == true) {
-                    val msg = response.body()?.message ?: "Login successful"
-
-                    onResult(true, msg)
-
-
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                    finish()
-                } else {
-                    val msg = response.body()?.message
-                        ?: "Login failed (${response.code()})"
-
-                    onResult(false, msg)
-                }
-            } catch (e: Exception) {
-                onResult(false, "Error: ${e.localizedMessage ?: "Unknown error"}")
+                RegisterScreen()
             }
         }
     }
 }
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun RegisterScreen() {
 
     val context = LocalContext.current
-    val activity = context as? LoginActivity
+    val activity = context as? RegisterActivity
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var isLoading by remember { mutableStateOf(false) }
+    var username by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
                     Text(
-                        "Login",
+                        "Register",
                         color = Color(0xFF06A546)
                     )
                 },
@@ -114,12 +75,21 @@ fun LoginScreen() {
         ) {
 
             Text(
-                "Welcome Back",
+                text = "Create Account",
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF040F0F),
+                color = Color(0xFF040F0F), // sporex_black
                 modifier = Modifier.padding(bottom = 24.dp)
             )
+
+            OutlinedTextField(
+                value = username,
+                onValueChange = { username = it },
+                label = { Text("Username") },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
 
             OutlinedTextField(
                 value = email,
@@ -140,63 +110,29 @@ fun LoginScreen() {
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-                onClick = {
-                    if (email.isEmpty() || password.isEmpty()) {
-                        Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
-                    } else {
-                        isLoading = true
-                        activity?.performLogin(email, password) { _, message ->
-                            isLoading = false
-                            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                },
+                onClick = { /* TODO: handle registration */ },
                 shape = RoundedCornerShape(12.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp),
-                enabled = !isLoading,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF06A546),
+                    containerColor = Color(0xFF06A546), // sporex_green
                     contentColor = Color.White
                 )
             ) {
-                Text(if (isLoading) "Logging in..." else "Login", fontSize = 18.sp)
+                Text("Register", fontSize = 18.sp)
             }
 
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                "Or continue with",
-                fontSize = 14.sp,
-                color = Color.Gray,
-                modifier = Modifier.padding(bottom = 12.dp)
-            )
-
-            Button(
-                onClick = { /* TODO: Handle Google login */ },
-                shape = RoundedCornerShape(12.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.White,
-                    contentColor = Color.Black
-                )
-            ) {
-                Text("Google Login", fontSize = 16.sp)
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Text(
-                text = "Don't have an account? Sign up",
+                text = "Already have an account? Login",
                 fontSize = 16.sp,
-                color = Color(0xFF06A546),
+                color = Color(0xFF06A546), // clickable green
                 textAlign = TextAlign.Center,
                 modifier = Modifier.clickable {
                     context.startActivity(
-                        Intent(context, RegisterActivity::class.java)
+                        Intent(context, LoginActivity::class.java)
                     )
                 }
             )

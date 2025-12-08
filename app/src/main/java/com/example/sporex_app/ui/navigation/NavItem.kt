@@ -9,8 +9,10 @@ sealed class NavItem(
     val icon: ImageVector
 ) {
     object Home : NavItem("home", Icons.Filled.Home)
-//    object Messages : NavItem("device", Icons.Filled.device)
+    //    object Messages : NavItem("device", Icons.Filled.device)
+    object Devices : NavItem("devices", Icons.Filled.Devices)
     object Camera : NavItem("camera", Icons.Filled.CameraAlt)
-//    object Profile : NavItem("profile", Icons.Filled.Person)
-object Profile : NavItem("profile", Icons.Filled.Person)
+    //    object Profile : NavItem("profile", Icons.Filled.Person)
+    object Profile : NavItem("profile", Icons.Filled.Person)
 }
+
