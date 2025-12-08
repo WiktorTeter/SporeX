@@ -18,7 +18,7 @@ fun CreateDeviceScreen(onCreateClick: (String) -> Unit) {
 
     Scaffold(
         bottomBar = { BottomNavBar(currentScreen = "device") },
-        containerColor = Color(0xFF08A045)
+        containerColor = Color(0xFF06A546)
     ) { padding ->
 
         Column(
@@ -44,7 +44,11 @@ fun CreateDeviceScreen(onCreateClick: (String) -> Unit) {
 
             Button(
                 onClick = { onCreateClick(deviceName.text) },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Black,
+                    contentColor = Color.White
+                )
             ) {
                 Text("Add Device")
             }

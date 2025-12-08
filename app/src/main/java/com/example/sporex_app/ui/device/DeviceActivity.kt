@@ -10,9 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
-import com.example.sporex_app.ui.useraccount.ProfileActivity
 
 class DeviceActivity : ComponentActivity() {
 
@@ -27,31 +25,27 @@ class DeviceActivity : ComponentActivity() {
 
                 NavHost(
                     navController = navController,
-                    startDestination = DeviceScreen.DeviceSetup.route
-
+                    startDestination = DeviceScreen.DeviceDashboard.route
                 ) {
-
-                    // Create Device Screen
                     composable(DeviceScreen.DeviceSetup.route) {
                         CreateDeviceScreen(
                             onCreateClick = {
-                                startActivity(
-                                    Intent(
-                                        this@DeviceActivity,
-                                        ProfileActivity::class.java
-                                    )
-                                )
-                                finish()
+                                navController.navigate(DeviceScreen.DeviceDashboard.route)
                             }
                         )
                     }
-// Edit Device Screen
+                    composable(DeviceScreen.DeviceDashboard.route) {
+                        DeviceDashboardScreen(
+                            onManageDeviceClick = {
+                                navController.navigate(DeviceScreen.DeviceEdit.route)
+                            }
+                        )
+                    }
                     composable(DeviceScreen.DeviceEdit.route) {
                         EditDeviceScreen(
                             onBackClick = { navController.popBackStack() }
                         )
                     }
-
                 }
             }
         }
