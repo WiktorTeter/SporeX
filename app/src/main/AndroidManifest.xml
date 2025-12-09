@@ -21,12 +21,12 @@
         <activity android:name=".ui.components.ConfirmationActivity" />
         <activity android:name=".ui.components.ResultActivity" />
         <activity android:name=".ui.useraccount.ProfileActivity" />
-        <activity android:name=".ui.useraccount.LoginActivity" />
+        <activity android:name="MainActivity" />
         <activity android:name=".ui.device.DeviceActivity"
             android:exported="true" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.useraccount.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.SPOREX_App">
 
