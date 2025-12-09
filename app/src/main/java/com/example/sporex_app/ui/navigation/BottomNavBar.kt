@@ -10,7 +10,9 @@ import androidx.compose.ui.res.colorResource
 import com.example.sporex_app.MainActivity
 import com.example.sporex_app.R
 import com.example.sporex_app.ui.components.UploadActivity
-import com.example.sporex_app.ui.useraccount.LoginActivity
+import com.example.sporex_app.ui.device.DeviceActivity
+import com.example.sporex_app.ui.useraccount.ProfileActivity
+
 
 @Composable
 fun BottomNavBar(currentScreen: String) {
@@ -19,7 +21,9 @@ fun BottomNavBar(currentScreen: String) {
 
     val items = listOf(
         NavItem.Home,
-        NavItem.Camera
+        NavItem.Devices,
+        NavItem.Camera,
+        NavItem.Profile
     )
 
     NavigationBar(containerColor = colorResource(id = R.color.sporex_black)) {
@@ -31,9 +35,10 @@ fun BottomNavBar(currentScreen: String) {
                 onClick = {
                     when (item.route) {
                         "home" -> context.startActivity(Intent(context, MainActivity::class.java))
+                        "devices" -> context.startActivity(Intent(context, DeviceActivity::class.java))
                         "camera" -> context.startActivity(Intent(context, UploadActivity::class.java))
                         "profile" -> context.startActivity(
-                            Intent(context, LoginActivity::class.java)
+                            Intent(context, ProfileActivity::class.java)
                         )
                     }
                 },
