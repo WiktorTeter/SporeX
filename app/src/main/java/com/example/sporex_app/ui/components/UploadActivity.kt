@@ -27,23 +27,25 @@ class UploadActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+            val context = this@UploadActivity
+
             Scaffold(
                 bottomBar = { BottomNavBar(currentScreen = "camera") }
-            ) {
-                UploadScreen(
-                    onBack = { finish() },
-                    onNext = { uri ->
-                        val intent = Intent(this, ConfirmationActivity::class.java)
-                        intent.putExtra("imageUri", uri.toString())
-                        startActivity(intent)
-                    }
-                )
+            ) { paddingValues ->
+                Box(modifier = Modifier.padding(paddingValues)) {
+                    UploadScreen(
+                        onBack = { finish() },
+                        onNext = { uri ->
+                            val intent = Intent(context, ConfirmationActivity::class.java)
+                            intent.putExtra("imageUri", uri.toString())
+                            startActivity(intent)
+                        }
+                    )
+                }
             }
         }
     }
-
-
-    @Composable
+        @Composable
     fun UploadScreen(
         onBack: () -> Unit,
         onNext: (Uri) -> Unit

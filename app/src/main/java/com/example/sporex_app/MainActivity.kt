@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
             SPOREX_AppTheme {
                 Scaffold(
                     bottomBar = { BottomNavBar(currentScreen = "home") }
-                ) { padding ->
+                ) {
                     MainScreen()
                 }
             }

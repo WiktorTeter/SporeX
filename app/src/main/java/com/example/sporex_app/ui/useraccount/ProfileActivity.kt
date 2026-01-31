@@ -1,14 +1,17 @@
 package com.example.sporex_app.ui.useraccount
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.res.colorResource
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -16,10 +19,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.sporex_app.R
 import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
+import com.example.sporex_app.ui.community.MyPostsActivity
+
 
 class ProfileActivity : ComponentActivity() {
 
@@ -30,9 +38,13 @@ class ProfileActivity : ComponentActivity() {
             SPOREX_AppTheme {
                 ProfileScreen(
                     onHistoryClick = { showToast("History coming soon") },
-                    onPostsClick = { showToast("My Posts coming soon") },
+                    onPostsClick = {
+                        startActivity(Intent(this, MyPostsActivity::class.java))
+                    },
                     onDeviceClick = { showToast("My Device coming soon") },
-                    onSettingsClick = { showToast("Settings coming soon") }
+                    onSettingsClick = {
+                        startActivity(Intent(this, UserSettings::class.java))
+                    }
                 )
             }
         }
@@ -52,9 +64,7 @@ fun ProfileScreen(
     onSettingsClick: () -> Unit
 ) {
     Scaffold(
-        bottomBar = {
-            BottomNavBar(currentScreen = "profile")
-        },
+        bottomBar = { BottomNavBar(currentScreen = "profile") },
         containerColor = Color(0xFF08A045)
     ) { padding ->
         ProfileContent(
@@ -82,33 +92,36 @@ private fun ProfileContent(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        // Header background (gray bar like your XML)
+        // Header background
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
-                .background(Color(0xFF444444))
+                .background(colorResource(id = R.color.sporex_green))
         )
 
-        // Profile Picture
+        // Profile picture
         Box(
             modifier = Modifier
                 .offset(y = (-60).dp)
                 .size(120.dp)
-                .background(Color.White, CircleShape),
-            contentAlignment = Alignment.BottomEnd
+                .clip(CircleShape)
+                .background(Color.White),
+            contentAlignment = Alignment.Center
         ) {
-            Box(
+            Image(
+                painter = painterResource(id = R.drawable.chloekim),
+                contentDescription = "Profile Picture",
                 modifier = Modifier
-                    .size(34.dp)
-                    .background(Color(0xFF08A045), CircleShape)
+                    .fillMaxSize()
+                    .clip(CircleShape)
             )
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "Profile Name",
+            text = "Chloe Kim",
             style = MaterialTheme.typography.titleMedium,
             color = Color.White
         )
@@ -138,103 +151,3 @@ private fun ActionButton(text: String, onClick: () -> Unit) {
         Text(text)
     }
 }
-
-//package com.example.sporex_app.ui.useraccount
-//
-//import android.os.Bundle
-//import android.widget.Toast
-//import androidx.activity.ComponentActivity
-//import androidx.compose.ui.platform.ViewCompositionStrategy
-//import com.example.sporex_app.databinding.ActivityProfileBinding
-//import com.example.sporex_app.ui.navigation.BottomNavBar
-//import com.example.sporex_app.ui.theme.SPOREX_AppTheme
-//
-//class ProfileActivity : ComponentActivity() {
-//
-//    private lateinit var binding: ActivityProfileBinding
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        binding = ActivityProfileBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        setupButtons()
-//        setupBottomNav()
-//    }
-//
-//    private fun setupButtons() {
-//        binding.btnHistory.setOnClickListener {
-//            Toast.makeText(this, "History coming soon", Toast.LENGTH_SHORT).show()
-//        }
-//
-//        binding.btnMyPosts.setOnClickListener {
-//            Toast.makeText(this, "My Posts coming soon", Toast.LENGTH_SHORT).show()
-//        }
-//
-//        binding.btnMyDevice.setOnClickListener {
-//            Toast.makeText(this, "My Device coming soon", Toast.LENGTH_SHORT).show()
-//        }
-//
-//        binding.btnSettings.setOnClickListener {
-//            Toast.makeText(this, "Settings coming soon", Toast.LENGTH_SHORT).show()
-//        }
-//    }
-//
-//    private fun setupBottomNav() {
-//        // Prevent ComposeView from being destroyed incorrectly on config changes
-//        binding.composeBottomNav.apply {
-//            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-//            setContent {
-//                SPOREX_AppTheme {
-//                    BottomNavBar(currentScreen = "profile")
-//                }
-//            }
-//        }
-//    }
-//}
-//
-//
-////package com.example.sporex_app.ui.useraccount
-////
-////import android.os.Bundle
-////import android.widget.Toast
-////import androidx.appcompat.app.AppCompatActivity
-////import com.example.sporex_app.databinding.ActivityProfileBinding
-////import com.example.sporex_app.ui.navigation.BottomNavBar
-////
-////class ProfileActivity : AppCompatActivity() {
-////
-////    private lateinit var binding: ActivityProfileBinding
-////
-////    override fun onCreate(savedInstanceState: Bundle?) {
-////        super.onCreate(savedInstanceState)
-////        binding = ActivityProfileBinding.inflate(layoutInflater)
-////        setContentView(binding.root)
-////
-////        binding.btnHistory.setOnClickListener {
-////            Toast.makeText(this, "History coming soon", Toast.LENGTH_SHORT).show()
-////        }
-////
-////        binding.btnMyPosts.setOnClickListener {
-////            Toast.makeText(this, "My Posts coming soon", Toast.LENGTH_SHORT).show()
-////        }
-////
-////        binding.btnMyDevice.setOnClickListener {
-////            Toast.makeText(this, "My Device coming soon", Toast.LENGTH_SHORT).show()
-////        }
-////
-////        binding.btnSettings.setOnClickListener {
-////            Toast.makeText(this, "Settings coming soon", Toast.LENGTH_SHORT).show()
-////        }
-////
-////        binding.composeBottomNav.setContent {
-////            BottomNavBar(currentScreen = "profile")
-////        }
-////
-////
-//////        binding.btnEditProfile.setOnClickListener {
-//////            Toast.makeText(this, "Edit profile coming soon", Toast.LENGTH_SHORT).show()
-//////        }
-////    }
-////}
