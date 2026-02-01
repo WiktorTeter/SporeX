@@ -6,9 +6,10 @@ POST http://localhost:5000/api/register
 Content-Type: application/json
 
 {
-    "email": "test@sporex.com",
-    "password": "123456",
-    "name": "Test User"
+  "email": "test@sporex.com",
+  "password": "123456",
+  "username": "testuser",
+  "name": "Test User"
 }
 
 ### LOGIN USER

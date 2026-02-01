@@ -164,7 +164,7 @@ No need to manually add documents — FastAPI handles user creation and validati
 Inside `sporex-backend`:
 
 ```bash
-uvicorn app:app --reload --port 8000
+uvicorn app:app --reload --port 5000
 ```
 
 The backend now runs at:

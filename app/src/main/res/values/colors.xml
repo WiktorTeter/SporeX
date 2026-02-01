@@ -5,7 +5,21 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="sporex_black">#040F0F</color>
-    <color name="sporex_green">#06A546</color>
-    <color name="sporex_white">#FFFFFFFF</color>
-</resources>
+        <!-- Brand -->
+        <color name="sporex_black">#040F0F</color>
+        <color name="sporex_green">#06A546</color>
+        <color name="sporex_white">#FFFFFFFF</color>
+
+        <!-- UI surfaces -->
+        <color name="sporex_surface">#081F08</color>
+        <color name="sporex_card">#0D1F0D</color>
+
+        <!-- Text -->
+        <color name="sporex_text_primary">#E6FFE6</color>
+        <color name="sporex_text_secondary">#9BBF9B</color>
+        <color name="sporex_text_muted">#6F8F6F</color>
+        <color name="sporex_grey">#D9D9D9</color>
+
+        <!-- Accent -->
+        <color name="sporex_green_soft">#66E6A3</color>
+    </resources>

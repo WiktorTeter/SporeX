@@ -17,3 +17,13 @@ local.properties
 *.env
 .env
 sporex-backend/.env
+venv
+# Python cache
+sporex-backend/__pycache__
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.vscode/
