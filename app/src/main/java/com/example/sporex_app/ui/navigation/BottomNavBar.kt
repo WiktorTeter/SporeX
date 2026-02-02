@@ -20,7 +20,7 @@ fun BottomNavBar(currentScreen: String) {
     val items = listOf(
         NavItem.Home,
         NavItem.Devices,
-        NavItem.Camera,  // Ensure Camera is included
+        NavItem.Camera,
         NavItem.Profile
     )
 

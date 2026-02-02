@@ -19,45 +19,6 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.ui.unit.sp
 import com.example.sporex_app.ui.navigation.TopBar
 
-//@Composable
-//private fun CameraCard(onUploadClick: () -> Unit) {
-//    Column(
-//        horizontalAlignment = Alignment.CenterHorizontally,
-//        modifier = Modifier.fillMaxWidth()
-//    ) {
-//        Spacer(Modifier.height(20.dp))
-//
-//        Box(
-//            modifier = Modifier
-//                .padding(horizontal = 20.dp)
-//                .fillMaxWidth()
-//                .clickable { onUploadClick() }
-//        ) {
-//            Card(
-//                modifier = Modifier.fillMaxWidth(),
-//                shape = RoundedCornerShape(20.dp),
-//                colors = CardDefaults.cardColors(containerColor = Color.White)
-//            ) {
-//                Box(
-//                    modifier = Modifier
-//                        .height(180.dp)
-//                        .fillMaxWidth(),
-//                    contentAlignment = Alignment.Center
-//                ) {
-//                    Icon(
-//                        Icons.Filled.CameraAlt,
-//                        contentDescription = "Camera",
-//                        tint = Color.Black,
-//                        modifier = Modifier.size(120.dp).offset(y = 6.dp)
-//                    )
-//                }
-//            }
-//        }
-//
-//        Spacer(Modifier.height(20.dp))
-//    }
-//}
-
 @Composable
 private fun CameraCard(onUploadClick: () -> Unit) {
     Column(
@@ -171,7 +132,9 @@ private fun PreviousCaseCard() {
 
 @Composable
 fun HomeScreen(
-    onUploadClick: () -> Unit
+    onUploadClick: () -> Unit,
+    modifier: Modifier = Modifier
+
 ) {
     Scaffold(
         bottomBar = { BottomNavBar(currentScreen = "home") },
@@ -181,7 +144,7 @@ fun HomeScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF06A546)) // FULL SCREEN GREEN
+                .background(Color(0xFF06A546))
                 .padding(bottom = padding.calculateBottomPadding())
         ) {
 
