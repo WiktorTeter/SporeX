@@ -3,6 +3,7 @@ package com.example.sporex_app.ui.device
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,7 +15,7 @@ import com.example.sporex_app.ui.navigation.BottomNavBar
 @Composable
 fun CreateDeviceScreen(onCreateClick: (String) -> Unit) {
 
-    var deviceName by remember { mutableStateOf(TextFieldValue("")) }
+    var deviceName by rememberSaveable { mutableStateOf(TextFieldValue("")) }
 
     Scaffold(
         bottomBar = { BottomNavBar(currentScreen = "device") },

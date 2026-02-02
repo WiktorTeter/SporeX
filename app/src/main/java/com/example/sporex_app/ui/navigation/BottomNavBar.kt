@@ -13,33 +13,27 @@ import com.example.sporex_app.ui.components.UploadActivity
 import com.example.sporex_app.ui.device.DeviceActivity
 import com.example.sporex_app.ui.useraccount.ProfileActivity
 
-
 @Composable
 fun BottomNavBar(currentScreen: String) {
-
     val context = LocalContext.current
 
     val items = listOf(
         NavItem.Home,
         NavItem.Devices,
-        NavItem.Camera,
+        NavItem.Camera,  // Ensure Camera is included
         NavItem.Profile
     )
 
     NavigationBar(containerColor = colorResource(id = R.color.sporex_black)) {
-
         items.forEach { item ->
-
             NavigationBarItem(
                 selected = currentScreen == item.route,
                 onClick = {
                     when (item.route) {
                         "home" -> context.startActivity(Intent(context, MainActivity::class.java))
                         "devices" -> context.startActivity(Intent(context, DeviceActivity::class.java))
-                        "camera" -> context.startActivity(Intent(context, UploadActivity::class.java))
-                        "profile" -> context.startActivity(
-                            Intent(context, ProfileActivity::class.java)
-                        )
+                        "camera" -> context.startActivity(Intent(context, UploadActivity::class.java))  // Add action for camera
+                        "profile" -> context.startActivity(Intent(context, ProfileActivity::class.java))
                     }
                 },
                 icon = {

@@ -19,58 +19,19 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.ui.unit.sp
 import com.example.sporex_app.ui.navigation.TopBar
 
-@Composable
-private fun CameraCard(onUploadClick: () -> Unit) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Spacer(Modifier.height(20.dp))
-
-        Box(
-            modifier = Modifier
-                .padding(horizontal = 20.dp)
-                .fillMaxWidth()
-                .clickable { onUploadClick() }
-        ) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .height(180.dp)
-                        .fillMaxWidth(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(
-                        Icons.Filled.CameraAlt,
-                        contentDescription = "Camera",
-                        tint = Color.Black,
-                        modifier = Modifier.size(120.dp).offset(y = 6.dp)
-                    )
-                }
-            }
-        }
-
-        Spacer(Modifier.height(20.dp))
-    }
-}
-
 //@Composable
 //private fun CameraCard(onUploadClick: () -> Unit) {
 //    Column(
 //        horizontalAlignment = Alignment.CenterHorizontally,
 //        modifier = Modifier.fillMaxWidth()
 //    ) {
-//
 //        Spacer(Modifier.height(20.dp))
 //
 //        Box(
 //            modifier = Modifier
 //                .padding(horizontal = 20.dp)
 //                .fillMaxWidth()
+//                .clickable { onUploadClick() }
 //        ) {
 //            Card(
 //                modifier = Modifier.fillMaxWidth(),
@@ -84,22 +45,70 @@ private fun CameraCard(onUploadClick: () -> Unit) {
 //                    contentAlignment = Alignment.Center
 //                ) {
 //                    Icon(
-//                        imageVector = Icons.Filled.CameraAlt,
+//                        Icons.Filled.CameraAlt,
 //                        contentDescription = "Camera",
 //                        tint = Color.Black,
-//                        modifier = Modifier
-//                            .size(120.dp)
-//                            .offset(y = 6.dp)
+//                        modifier = Modifier.size(120.dp).offset(y = 6.dp)
 //                    )
 //                }
 //            }
 //        }
 //
 //        Spacer(Modifier.height(20.dp))
-//
 //    }
 //}
-//
+
+@Composable
+private fun CameraCard(onUploadClick: () -> Unit) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Spacer(Modifier.height(20.dp))
+
+        Box(
+            modifier = Modifier
+                .padding(horizontal = 20.dp)
+                .fillMaxWidth()
+                .clickable(
+                    onClickLabel = "Upload a clear image",
+                    onClick = onUploadClick
+                )
+        ) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .height(200.dp)
+                        .fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.CameraAlt,
+                        contentDescription = "Tap to upload an image",
+                        tint = Color.Black,
+                        modifier = Modifier.size(100.dp)
+                    )
+
+                    Spacer(Modifier.height(12.dp))
+
+                    Text(
+                        text = "Tap to upload photo",
+                        fontWeight = FontWeight.Medium,
+                        color = Color.Black
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(20.dp))
+    }
+}
+
 
 @Composable
 private fun PreviousCaseCard() {
@@ -165,20 +174,21 @@ fun HomeScreen(
     onUploadClick: () -> Unit
 ) {
     Scaffold(
-        bottomBar = { BottomNavBar(currentScreen = "home") }
+        bottomBar = { BottomNavBar(currentScreen = "home") },
+        containerColor = Color.White
     ) { padding ->
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
-                .background(Color(0xFF06A546))
+                .background(Color(0xFF06A546)) // FULL SCREEN GREEN
+                .padding(bottom = padding.calculateBottomPadding())
         ) {
+
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
                 TopBar()
-
-                Spacer(modifier = Modifier.height(32.dp))
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -220,3 +230,4 @@ fun HomeScreen(
         }
     }
 }
+
