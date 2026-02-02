@@ -20,3 +20,17 @@ Content-Type: application/json
     "email": "test@sporex.com",
     "password": "123456"
 }
+
+
+### CREATE READING (AUTHORIZED)
+POST http://localhost:8000/api/readings
+Content-Type: application/json
+X-Device-Token: 6HGlMfWv9fV3ZhzGI6JxJlSFPXCbYaKwXsPzxPH7psxXR2GOfCrqp7UTj6SLcG3S
+
+{
+  "device_id": "sporex-esp32-01",
+  "co2": 650,
+  "temp_c": 24.3,
+  "humidity": 55.2,
+  "ts": 1700000000
+}

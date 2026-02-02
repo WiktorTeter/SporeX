@@ -2,6 +2,7 @@ import os
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
+from fastapi import Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, EmailStr
@@ -30,10 +31,13 @@ load_dotenv()
 
 MONGO_URI = os.getenv("MONGODB_URI")
 DB_NAME = os.getenv("MONGODB_DB_NAME")
+DEVICE_INGEST_TOKEN = os.getenv("DEVICE_INGEST_TOKEN")
+
 
 client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
 users_col = db["users"]
+readings_col = db["sensor_readings"]
 
 app = FastAPI(
     title="SporeX Backend",
@@ -66,6 +70,13 @@ class LoginBody(BaseModel):
 class BasicResponse(BaseModel):
     success: bool
     message: str
+
+class ReadingBody(BaseModel):
+    device_id: str
+    co2: int
+    temp_c: float
+    humidity: float
+    ts: int | None = None  # optional epoch seconds from device
 
 
 # ---------- Routes ----------
@@ -139,3 +150,25 @@ async def login(body: LoginBody):
         )
 
     return {"success": True, "message": "Login OK"}
+
+@app.post("/api/readings", response_model=BasicResponse)
+async def ingest_reading(
+    body: ReadingBody,
+    x_device_token: str | None = Header(default=None),
+):
+    if not DEVICE_INGEST_TOKEN or x_device_token != DEVICE_INGEST_TOKEN:
+        raise HTTPException(status_code=401, detail="Unauthorized device")
+
+    doc = {
+        "device_id": body.device_id,
+        "co2": body.co2,
+        "temp_c": body.temp_c,
+        "humidity": body.humidity,
+        "device_ts": datetime.fromtimestamp(
+            body.ts, tz=timezone.utc
+        ),
+        "created_at": datetime.now(timezone.utc),
+    }
+
+    readings_col.insert_one(doc)
+    return {"success": True, "message": "Reading stored"}
