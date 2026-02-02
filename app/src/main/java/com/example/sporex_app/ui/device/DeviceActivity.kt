@@ -1,6 +1,5 @@
 package com.example.sporex_app.ui.device
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,28 +22,48 @@ class DeviceActivity : ComponentActivity() {
                 val navController: NavHostController = rememberNavController()
                 val snackBarState = remember { SnackbarHostState() }
 
+                // Shared repository for all screens
+                val repo = DeviceRepository(this)
+
                 NavHost(
                     navController = navController,
                     startDestination = DeviceScreen.DeviceDashboard.route
                 ) {
+
+                    // CREATE DEVICE SCREEN
                     composable(DeviceScreen.DeviceSetup.route) {
                         CreateDeviceScreen(
-                            onCreateClick = {
+                            onCreateClick = { name ->
+                                repo.setDeviceName(name)
                                 navController.navigate(DeviceScreen.DeviceDashboard.route)
                             }
                         )
                     }
+
+
+                    // DASHBOARD SCREEN
                     composable(DeviceScreen.DeviceDashboard.route) {
                         DeviceDashboardScreen(
+                            deviceName = repo.getDeviceName(),
                             onManageDeviceClick = {
                                 navController.navigate(DeviceScreen.DeviceEdit.route)
                             }
                         )
                     }
+
+
+                    // EDIT DEVICE SCREEN
                     composable(DeviceScreen.DeviceEdit.route) {
                         EditDeviceScreen(
-                            onBackClick = { navController.popBackStack() }
+                            deviceName = repo.getDeviceName(),
+                            onRename = { newName ->
+                                repo.setDeviceName(newName)
+                            },
+                            onBackClick = {
+                                navController.popBackStack()
+                            }
                         )
+
                     }
                 }
             }
