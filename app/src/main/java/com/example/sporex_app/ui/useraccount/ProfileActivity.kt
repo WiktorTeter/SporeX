@@ -7,36 +7,25 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
-import androidx.compose.material3.Icon
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.res.colorResource
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.example.sporex_app.R
 import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
-import com.example.sporex_app.ui.community.MyPostsActivity
-import com.example.sporex_app.ui.components.HistoryActivity
-import com.example.sporex_app.ui.device.DeviceActivity
-import com.example.sporex_app.ui.device.DeviceDashboardScreen
-import com.example.sporex_app.ui.navigation.TopBar
-
 
 class ProfileActivity : ComponentActivity() {
 
@@ -46,10 +35,15 @@ class ProfileActivity : ComponentActivity() {
         setContent {
             SPOREX_AppTheme {
                 ProfileScreen(
-                    onHistoryClick = { startActivity(Intent(this, HistoryActivity::class.java)) },
-                    onPostsClick = { startActivity(Intent(this, MyPostsActivity::class.java)) },
-                    onDeviceClick = { startActivity(Intent(this, DeviceActivity::class.java)) },
-                    onSettingsClick = { startActivity(Intent(this, UserSettings::class.java)) }
+                    onHistoryClick = { showToast("History coming soon") },
+
+                    // ✅ SAFEST FIX: MyPostsActivity not available yet, so just show a toast
+                    onPostsClick = { showToast("My Posts coming soon") },
+
+                    onDeviceClick = { showToast("My Device coming soon") },
+                    onSettingsClick = {
+                        startActivity(Intent(this, UserSettings::class.java))
+                    }
                 )
             }
         }
@@ -60,6 +54,7 @@ class ProfileActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(
     onHistoryClick: () -> Unit,
@@ -69,61 +64,48 @@ fun ProfileScreen(
 ) {
     Scaffold(
         bottomBar = { BottomNavBar(currentScreen = "profile") },
-        containerColor = Color.Transparent
+        containerColor = Color(0xFF08A045)
     ) { padding ->
-
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(colorResource(id = R.color.sporex_green))
-                .padding(
-                    bottom = padding.calculateBottomPadding(),
-                    start = padding.calculateStartPadding(LayoutDirection.Ltr),
-                    end = padding.calculateEndPadding(LayoutDirection.Ltr)
-                )
-        ) {
-
-            Column(modifier = Modifier.fillMaxSize()) {
-
-                TopBar()
-
-                Surface(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 24.dp),
-                    color = Color.Transparent
-                ) {
-                    ProfileContent(
-                        onHistoryClick = onHistoryClick,
-                        onPostsClick = onPostsClick,
-                        onDeviceClick = onDeviceClick,
-                        onSettingsClick = onSettingsClick
-                    )
-                }
-            }
-        }
+        ProfileContent(
+            modifier = Modifier.padding(padding),
+            onHistoryClick = onHistoryClick,
+            onPostsClick = onPostsClick,
+            onDeviceClick = onDeviceClick,
+            onSettingsClick = onSettingsClick
+        )
     }
 }
 
 @Composable
 private fun ProfileContent(
+    modifier: Modifier = Modifier,
     onHistoryClick: () -> Unit,
     onPostsClick: () -> Unit,
     onDeviceClick: () -> Unit,
     onSettingsClick: () -> Unit
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
-            .padding(top = 24.dp),
+            .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Avatar
+
+        // Header background
         Box(
             modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+                .background(colorResource(id = R.color.sporex_green))
+        )
+
+        // Profile picture
+        Box(
+            modifier = Modifier
+                .offset(y = (-60).dp)
                 .size(120.dp)
                 .clip(CircleShape)
-                .background(Color.LightGray),
+                .background(Color.White),
             contentAlignment = Alignment.Center
         ) {
             Image(
@@ -135,74 +117,36 @@ private fun ProfileContent(
             )
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         Text(
             text = "Chloe Kim",
             style = MaterialTheme.typography.titleMedium,
-            color = Color.Black
+            color = Color.White
         )
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
-        Column(
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.fillMaxWidth()
-
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                ProfileActionCard("My Posts", Icons.Default.Article, onPostsClick)
-                ProfileActionCard("History", Icons.Default.History, onHistoryClick)
-            }
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                ProfileActionCard("My Device", Icons.Default.Devices, onDeviceClick)
-                ProfileActionCard("Settings", Icons.Default.Settings, onSettingsClick)
-            }
-        }
-
-    }
-    }
-
-
-
-@Composable
-private fun ProfileActionCard(
-    label: String,
-    icon: ImageVector,
-    onClick: () -> Unit
-) {
-    Surface(
-        modifier = Modifier
-            .height(120.dp)
-            .width(150.dp)
-            .clickable(onClick = onClick),
-        shape = RoundedCornerShape(20.dp),
-        color = Color(0xFFF2F2F2),
-        tonalElevation = 2.dp
-    ) {
-    Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = label,
-                modifier = Modifier.size(32.dp),
-                tint = Color(0xFF08A045)
-            )
-            Spacer(Modifier.height(8.dp))
-            Text(label, style = MaterialTheme.typography.bodyMedium, color = Color.Black)
-        }
+        ActionButton("My Posts", onPostsClick)
+        ActionButton("History", onHistoryClick)
+        ActionButton("My Device", onDeviceClick)
+        ActionButton("Settings", onSettingsClick)
     }
 }
 
+@Composable
+private fun ActionButton(text: String, onClick: () -> Unit) {
+    Button(
+        onClick = onClick,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(54.dp)
+            .padding(vertical = 8.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color(0xFFDDDDDD),
+            contentColor = Color.Black
+        )
+    ) {
+        Text(text)
+    }
+}

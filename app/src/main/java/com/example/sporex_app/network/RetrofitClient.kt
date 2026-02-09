@@ -12,7 +12,11 @@ object RetrofitClient {
     //       use  http://10.0.2.2:5000/
     // - If you use a real phone on the same Wi-Fi:
     //       use  http://YOUR_PC_LOCAL_IP:5000/
-    private const val BASE_URL = "http://10.0.2.2:5000/"
+
+
+    // TODO: replace with production URL when deployed
+
+    private const val BASE_URL = "http://10.39.52.156:5000/"
 
     private val logging = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
