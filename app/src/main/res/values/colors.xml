@@ -18,7 +18,10 @@
         <color name="sporex_text_primary">#E6FFE6</color>
         <color name="sporex_text_secondary">#9BBF9B</color>
         <color name="sporex_text_muted">#6F8F6F</color>
-        <color name="sporex_grey">#D9D9D9</color>
+        <color name="sporex_red">#EC3A3A</color>
+    <color name="sporex_blue">#EC3A3A</color>
+    <color name="sporex_grey">#D9D9D9</color>
+
 
         <!-- Accent -->
         <color name="sporex_green_soft">#66E6A3</color>

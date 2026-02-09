@@ -19,118 +19,54 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
 import com.example.sporex_app.ui.theme.TopBarFont
+import com.example.sporex_app.ui.components.UploadActivity
+
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.foundation.layout.windowInsetsPadding
 
 @Composable
 fun TopBar() {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(88.dp)
-            .clip(RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp))
-            .background(colorResource(id = R.color.sporex_grey))
-    ) {
-        Row(
+    Column {
+        Spacer(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 20.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+                .fillMaxWidth()
+                .height(WindowInsets.statusBars.asPaddingValues().calculateTopPadding())
+                .background(colorResource(id = R.color.sporex_grey))
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(88.dp)
+                .clip(RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp))
+                .background(colorResource(id = R.color.sporex_grey))
         ) {
-            Spacer(modifier = Modifier.width(28.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 20.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Spacer(modifier = Modifier.width(28.dp))
 
-            Text(
-                text = "SPOREX",
-                fontFamily = TopBarFont,
-                fontSize = 32.sp,
-                color = colorResource(id = R.color.sporex_green)
-            )
+                Text(
+                    text = "SPOREX",
+                    fontFamily = TopBarFont,
+                    fontSize = 32.sp,
+                    color = colorResource(id = R.color.sporex_green)
+                )
 
-            Icon(
-                imageVector = Icons.Filled.Notifications,
-                contentDescription = "Notifications",
-                modifier = Modifier.size(28.dp),
-                tint = colorResource(id = R.color.sporex_green)
-            )
+                Icon(
+                    imageVector = Icons.Filled.Notifications,
+                    contentDescription = "Notifications",
+                    modifier = Modifier.size(28.dp),
+                    tint = colorResource(id = R.color.sporex_green)
+                )
+            }
         }
     }
 }
-
-
-//@Composable
-//fun TopBar() {
-//    Box(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .height(100.dp) // reduced height
-//            .clip(RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp))
-//            .background(colorResource(id = R.color.sporex_grey)),
-//        contentAlignment = Alignment.Center
-//    ) {
-//        Row(
-//            verticalAlignment = Alignment.CenterVertically,
-//            horizontalArrangement = Arrangement.Center,
-//            modifier = Modifier.fillMaxWidth()
-//        ) {
-//            Text(
-//                text = "SPOREX",
-//                fontFamily = TopBarFont,
-//                fontSize = 32.sp,
-//                color = colorResource(id = R.color.sporex_green)
-//            )
-//        }
-//
-//        Box(
-//            modifier = Modifier
-//                .align(Alignment.TopEnd)
-//                .padding(top = 12.dp, end = 16.dp)
-//        ) {
-//            Icon(
-//                imageVector = Icons.Filled.Notifications,
-//                contentDescription = "Notifications",
-//                modifier = Modifier.size(28.dp),
-//                tint = colorResource(id = R.color.sporex_green) // contrast against grey
-//            )
-//        }
-//    }
-//}
-
-
-//@Composable
-//fun TopBar() {
-//    Box(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .height(100.dp)
-//            .padding(horizontal = 20.dp)
-//            .clip(RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp))
-//            .background(MaterialTheme.colorScheme.surface),
-//        contentAlignment = Alignment.Center
-//    ) {
-//        Row(
-//            verticalAlignment = Alignment.CenterVertically,
-//            horizontalArrangement = Arrangement.Center,
-//            modifier = Modifier.fillMaxWidth()
-//        ) {
-//            Text(
-//                text = "SPOREX",
-//                fontFamily = TopBarFont,
-//                fontSize = 32.sp,
-//                color = color.
-//            )
-//        }
-//
-//        Box(
-//            modifier = Modifier
-//                .align(Alignment.TopEnd)
-//                .padding(top = 16.dp, end = 16.dp)
-//        ) {
-//            Icon(
-//                imageVector = Icons.Filled.Notifications,
-//                contentDescription = "Notifications",
-//                modifier = Modifier.size(28.dp)
-//            )
-//
-//        }
-//    }
-//}
-
