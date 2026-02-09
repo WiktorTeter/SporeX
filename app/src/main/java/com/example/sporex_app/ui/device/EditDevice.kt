@@ -20,7 +20,9 @@ import com.example.sporex_app.ui.navigation.TopBar
 fun EditDeviceScreen(
     deviceName: String,
     onRename: (String) -> Unit,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+
+    onTestConnectionClick: () -> Unit
 ) {
     var showRenameDialog by remember { mutableStateOf(false) }
 
@@ -66,7 +68,7 @@ fun EditDeviceScreen(
                 Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
                     SettingItem("Edit Device Name") { showRenameDialog = true }
                     SettingItem("Device Details") { /* TODO */ }
-                    SettingItem("Test Connection") { /* TODO */ }
+                    SettingItem("Test Connection") {  onTestConnectionClick() }
                 }
 
                 Spacer(Modifier.weight(1f))

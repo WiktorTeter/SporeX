@@ -15,7 +15,8 @@ import com.example.sporex_app.ui.navigation.TopBar
 @Composable
 fun DeviceDashboardScreen(
     deviceName: String,
-    onManageDeviceClick: () -> Unit
+    onManageDeviceClick: () -> Unit,
+    onCreateDeviceClick: () -> Unit
 ) {
     var expanded by remember { mutableStateOf(true) }
 
@@ -25,7 +26,7 @@ fun DeviceDashboardScreen(
 
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { /* TODO: Create device */ },
+                onClick = onCreateDeviceClick,
                 containerColor = Color.Black,
                 contentColor = Color.White,
                 shape = RoundedCornerShape(50),

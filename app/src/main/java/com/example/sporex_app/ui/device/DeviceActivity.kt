@@ -3,8 +3,8 @@ package com.example.sporex_app.ui.device
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.runtime.remember
+//import androidx.compose.material3.SnackbarHostState
+//import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -20,7 +20,7 @@ class DeviceActivity : ComponentActivity() {
             SPOREX_AppTheme {
 
                 val navController: NavHostController = rememberNavController()
-                val snackBarState = remember { SnackbarHostState() }
+//                val snackBarState = remember { SnackbarHostState() }
 
                 // Shared repository for all screens
                 val repo = DeviceRepository(this)
@@ -29,13 +29,33 @@ class DeviceActivity : ComponentActivity() {
                     navController = navController,
                     startDestination = DeviceScreen.DeviceDashboard.route
                 ) {
+//
+//                    // CREATE DEVICE SCREEN
+//                    composable(DeviceScreen.DeviceSetup.route) {
+//                        CreateDeviceScreen(
+//                            onCreateClick = { name ->
+//                                repo.setDeviceName(name)
+//                                navController.navigate(DeviceScreen.DeviceDashboard.route)
+//                            }
+//                        )
+//                    }
 
-                    // CREATE DEVICE SCREEN
-                    composable(DeviceScreen.DeviceSetup.route) {
+                    composable("device") {
+                        DeviceDashboardScreen(
+                            deviceName = "Living Room Sensor",
+                            onManageDeviceClick = {
+                                navController.navigate("manage_device")
+                            },
+                            onCreateDeviceClick = {
+                                navController.navigate("create_device")
+                            }
+                        )
+                    }
+
+                    composable("create_device") {
                         CreateDeviceScreen(
-                            onCreateClick = { name ->
-                                repo.setDeviceName(name)
-                                navController.navigate(DeviceScreen.DeviceDashboard.route)
+                            onCreateClick = { deviceName ->
+                                navController.popBackStack()
                             }
                         )
                     }
@@ -47,12 +67,17 @@ class DeviceActivity : ComponentActivity() {
                             deviceName = repo.getDeviceName(),
                             onManageDeviceClick = {
                                 navController.navigate(DeviceScreen.DeviceEdit.route)
+                            },
+                            onCreateDeviceClick = {
+                                navController.navigate("create_device")
                             }
                         )
                     }
 
 
-                    // EDIT DEVICE SCREEN
+
+
+                    // EDIT SCREEN
                     composable(DeviceScreen.DeviceEdit.route) {
                         EditDeviceScreen(
                             deviceName = repo.getDeviceName(),
@@ -61,10 +86,24 @@ class DeviceActivity : ComponentActivity() {
                             },
                             onBackClick = {
                                 navController.popBackStack()
+                            },
+                            onTestConnectionClick = {
+                                navController.navigate(DeviceScreen.TestConnection.route)
                             }
                         )
-
                     }
+
+
+                    // TEST CONNECTION SCREEN
+                    composable(DeviceScreen.TestConnection.route) {
+                        TestConnectionRoute(
+                            repo = repo,
+                            onBack = {
+                                navController.popBackStack()
+                            }
+                        )
+                    }
+
                 }
             }
         }

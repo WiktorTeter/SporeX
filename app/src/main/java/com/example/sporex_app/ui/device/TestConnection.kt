@@ -14,7 +14,6 @@ import androidx.compose.ui.unit.dp
 import com.example.sporex_app.R
 import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.navigation.TopBar
-
 @Composable
 fun TestConnectionScreen(
     deviceName: String,
@@ -49,7 +48,6 @@ fun TestConnectionScreen(
                 verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
 
-                // Header (matches your screenshot)
                 Text(
                     text = model,
                     style = MaterialTheme.typography.titleLarge,
@@ -127,4 +125,20 @@ fun TestConnectionScreen(
             }
         }
     }
+}
+
+
+
+@Composable
+fun TestConnectionRoute(
+    repo: DeviceRepository,
+    onBack: () -> Unit
+) {
+    TestConnectionScreen(
+        deviceName = repo.getDeviceName(),
+        connectionStatus = true,
+        onReconnectClick = {
+            println("Reconnecting device…")
+        }
+    )
 }
