@@ -26,8 +26,6 @@ import androidx.compose.ui.unit.dp
 import com.example.sporex_app.R
 import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
-import com.example.sporex_app.ui.community.MyPostsActivity
-
 
 class ProfileActivity : ComponentActivity() {
 
@@ -38,9 +36,10 @@ class ProfileActivity : ComponentActivity() {
             SPOREX_AppTheme {
                 ProfileScreen(
                     onHistoryClick = { showToast("History coming soon") },
-                    onPostsClick = {
-                        startActivity(Intent(this, MyPostsActivity::class.java))
-                    },
+
+                    // ✅ SAFEST FIX: MyPostsActivity not available yet, so just show a toast
+                    onPostsClick = { showToast("My Posts coming soon") },
+
                     onDeviceClick = { showToast("My Device coming soon") },
                     onSettingsClick = {
                         startActivity(Intent(this, UserSettings::class.java))
