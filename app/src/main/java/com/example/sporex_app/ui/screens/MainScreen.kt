@@ -10,6 +10,7 @@ import com.example.sporex_app.ui.components.ProductsActivity
 import com.example.sporex_app.ui.components.UploadActivity
 
 @Composable
+
 fun MainScreen(paddingValues: PaddingValues) {
     val context = LocalContext.current
 
