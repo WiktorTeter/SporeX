@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient {
 
     // IMPORTANT:
-    // - If you use the Android Emulator and Flask runs on your PC at port 5000:
+    // - If you use the Android Emulator and runs on your PC at port 5000:
     //       use  http://10.0.2.2:5000/
     // - If you use a real phone on the same Wi-Fi:
     //       use  http://YOUR_PC_LOCAL_IP:5000/
