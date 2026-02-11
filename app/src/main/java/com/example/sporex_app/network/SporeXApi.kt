@@ -8,14 +8,14 @@ import retrofit2.http.Path
 
 interface SporexApi {
 
-    @POST("auth/login")
+    @POST("api/login")
     suspend fun login(@Body body: LoginRequest): Response<LoginResponse>
 
 
-    @GET("products")
+    @GET("api/products")
     suspend fun getProducts(): Response<List<ProductSummary>>
 
-    @GET("products/{id}")
+    @GET("api/products/{id}")
     suspend fun getProductDetail(@Path("id") id: String): Response<ProductDetail>
 
 }

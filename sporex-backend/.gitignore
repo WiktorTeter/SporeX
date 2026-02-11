@@ -1,0 +1,21 @@
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+
+.local.properties
+.env
+*.keystore
+.idea/
+build/
+
+

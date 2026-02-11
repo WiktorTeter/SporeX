@@ -1,8 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from fastapi import FastAPI
-from fastapi import Header, HTTPException
+from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, EmailStr
@@ -10,8 +9,17 @@ from pymongo import MongoClient
 from passlib.context import CryptContext
 from datetime import datetime, timezone
 
-# ---------- Password hashing utils ----------
+from pathlib import Path
+from dotenv import load_dotenv
 
+env_path = Path(__file__).parent / ".env"
+load_dotenv(dotenv_path=env_path)
+
+print("DEBUG ENV CHECK")
+
+
+
+# ---------- Password hashing utils ----------
 # Use PBKDF2-SHA256 instead of bcrypt to avoid backend issues
 pwd_context = CryptContext(
     schemes=["pbkdf2_sha256"],
@@ -21,23 +29,26 @@ pwd_context = CryptContext(
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
 
-
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     return pwd_context.verify(plain_password, hashed_password)
 
 # ---------- Config ----------
-
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGODB_URI")
 DB_NAME = os.getenv("MONGODB_DB_NAME")
 DEVICE_INGEST_TOKEN = os.getenv("DEVICE_INGEST_TOKEN")
 
+if not MONGO_URI or not DB_NAME:
+    raise RuntimeError("Missing MONGODB_URI or MONGODB_DB_NAME in environment")
 
 client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
 users_col = db["users"]
 readings_col = db["sensor_readings"]
+
+# ✅ NEW: products collection
+products_col = db["products"]
 
 app = FastAPI(
     title="SporeX Backend",
@@ -54,18 +65,15 @@ app.add_middleware(
 )
 
 # ---------- Pydantic models ----------
-
 class RegisterBody(BaseModel):
     email: EmailStr
     password: str
     username: str | None = None
     name: str | None = None
 
-
 class LoginBody(BaseModel):
     email: EmailStr
     password: str
-
 
 class BasicResponse(BaseModel):
     success: bool
@@ -78,27 +86,22 @@ class ReadingBody(BaseModel):
     humidity: float
     ts: int | None = None  # optional epoch seconds from device
 
+# ✅ NEW: product models
+class ProductDto(BaseModel):
+    id: str
+    name: str
+    sustainable: bool = True
+    best_for: str
+    steps: list[str]
+    warning: str | None = None
 
 # ---------- Routes ----------
-
 @app.get("/api/health", response_model=BasicResponse)
 async def health_check():
-    """
-    Simple health check for your backend.
-    """
     return {"success": True, "message": "Backend running"}
-
 
 @app.post("/api/register")
 async def register(body: RegisterBody):
-    """
-    Register a new user.
-
-    - Checks for existing email
-    - Hashes password
-    - Inserts document that matches MongoDB validator
-    """
-
     # 1) Check if a user with this email already exists
     if users_col.find_one({"email": body.email}):
         return JSONResponse(
@@ -112,26 +115,21 @@ async def register(body: RegisterBody):
     # 3) Hash the password
     password_hash = hash_password(body.password)
 
-    # 4) Build document that satisfies the collection validator
+    # 4) Build document
     user_doc = {
         "email": body.email,
         "username": username,
         "password_hash": password_hash,
-        "role": "member",                 # default role
-        "status": "active",               # default status
+        "role": "member",
+        "status": "active",
         "created_at": datetime.now(timezone.utc),
     }
 
-    # Optional extra field, not part of the validator but allowed
     if body.name:
         user_doc["name"] = body.name
 
-    # 5) Insert into Mongo
     users_col.insert_one(user_doc)
-
-    # 6) Response shape friendly to Android
     return {"success": True, "message": "User registered"}
-
 
 @app.post("/api/login")
 async def login(body: LoginBody):
@@ -149,7 +147,16 @@ async def login(body: LoginBody):
             content={"success": False, "message": "Invalid credentials"},
         )
 
-    return {"success": True, "message": "Login OK"}
+    # (Optional) return basic user info for the app
+    return {
+        "success": True,
+        "message": "Login OK",
+        "user": {
+            "email": user.get("email"),
+            "username": user.get("username"),
+            "name": user.get("name"),
+        }
+    }
 
 @app.post("/api/readings", response_model=BasicResponse)
 async def ingest_reading(
@@ -159,16 +166,40 @@ async def ingest_reading(
     if not DEVICE_INGEST_TOKEN or x_device_token != DEVICE_INGEST_TOKEN:
         raise HTTPException(status_code=401, detail="Unauthorized device")
 
+    # ✅ safer ts handling
+    device_dt = (
+        datetime.fromtimestamp(body.ts, tz=timezone.utc)
+        if body.ts is not None
+        else datetime.now(timezone.utc)
+    )
+
     doc = {
         "device_id": body.device_id,
         "co2": body.co2,
         "temp_c": body.temp_c,
         "humidity": body.humidity,
-        "device_ts": datetime.fromtimestamp(
-            body.ts, tz=timezone.utc
-        ),
+        "device_ts": device_dt,
         "created_at": datetime.now(timezone.utc),
     }
 
     readings_col.insert_one(doc)
     return {"success": True, "message": "Reading stored"}
+
+# ----------------------------
+# ✅ NEW: PRODUCTS ENDPOINTS
+# ----------------------------
+
+@app.get("/api/products")
+async def list_products():
+    products = list(products_col.find({}, {"_id": 0}))
+    return products
+
+@app.get("/api/products/{product_id}")
+def get_product(product_id: str):
+    product = products_col.find_one(
+        {"id": product_id},
+        {"_id": 0}
+    )
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+    return product
