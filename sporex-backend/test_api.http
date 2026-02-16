@@ -34,3 +34,28 @@ X-Device-Token: 6HGlMfWv9fV3ZhzGI6JxJlSFPXCbYaKwXsPzxPH7psxXR2GOfCrqp7UTj6SLcG3S
   "humidity": 55.2,
   "ts": 1700000000
 }
+
+### CREATE POST
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+
+{
+  "user_name": "testuser",
+  "post_name": "First Post",
+  "content": "This is my first post about sustainable living!"
+}
+
+### LIST ALL POSTS
+GET http://localhost:5000/api/posts
+
+### GET SPECIFIC POST
+GET http://localhost:5000/api/posts/69936b54ceeb4aa4e23a4967
+
+### ADD REPLY TO POST
+POST http://localhost:5000/api/posts/69936b54ceeb4aa4e23a4967/replies
+Content-Type: application/json
+
+{
+  "user_name": "anotheruser",
+  "content": "Great post! I totally agree with this approach."
+}
