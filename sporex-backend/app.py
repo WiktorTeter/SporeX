@@ -186,7 +186,7 @@ async def ingest_reading(
     return {"success": True, "message": "Reading stored"}
 
 # ----------------------------
-# ✅ NEW: PRODUCTS ENDPOINTS
+#  PRODUCTS ENDPOINTS
 # ----------------------------
 
 @app.get("/api/products")
@@ -203,3 +203,9 @@ def get_product(product_id: str):
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
     return product
+
+
+# ----------------------------
+# Settings ENDPOINTS
+# enabling darkmode, profile delete access, log out , navigate to device page
+# ----------------------------

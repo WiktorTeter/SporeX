@@ -16,7 +16,7 @@ object RetrofitClient {
 
     // TODO: replace with production URL when deployed
 
-    private const val BASE_URL = "http://10.39.52.156:5000/"
+    private const val BASE_URL = "http://10.20.204.156:5000/"
 
     private val logging = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
