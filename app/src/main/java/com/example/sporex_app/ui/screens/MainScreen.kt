@@ -11,8 +11,11 @@ import com.example.sporex_app.ui.components.UploadActivity
 
 @Composable
 
-fun MainScreen(paddingValues: PaddingValues) {
+fun MainScreen(paddingValues: PaddingValues,
+               isDarkMode: Boolean,
+               onThemeChange: (Boolean) -> Unit) {
     val context = LocalContext.current
+
 
     HomeScreen(
         modifier = Modifier.padding(paddingValues),
