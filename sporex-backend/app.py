@@ -211,7 +211,7 @@ async def ingest_reading(
     return {"success": True, "message": "Reading stored"}
 
 # ----------------------------
-# ✅ NEW: PRODUCTS ENDPOINTS
+#  PRODUCTS ENDPOINTS
 # ----------------------------
 
 @app.get("/api/products")
@@ -296,3 +296,9 @@ async def add_reply(post_id: str, body: ReplyCreateBody):
         "success": True,
         "message": "Reply added to post"
     }
+
+# ----------------------------
+# Settings ENDPOINTS
+# enabling darkmode, profile delete access, log out , navigate to device page
+# ----------------------------
+

@@ -33,6 +33,8 @@ class UserSettings : ComponentActivity() {
 
 @Composable
 fun UserSettingsScreen() {
+    var isDarkMode by remember { mutableStateOf(false) }   // ✅ add state
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -44,28 +46,53 @@ fun UserSettingsScreen() {
             containerColor = Color.Transparent
         ) { padding ->
 
-            Box(
+            Column(
                 modifier = Modifier
                     .padding(padding)
                     .padding(horizontal = 16.dp, vertical = 24.dp)
                     .fillMaxSize()
+                    .background(
+                        color = colorResource(id = R.color.sporex_black),
+                        shape = MaterialTheme.shapes.medium
+                    )
+                    .padding(vertical = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(1.dp)
             ) {
-                Column(
+
+                Text(
+                    text = "Appearance",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = colorResource(id = R.color.sporex_white),
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(
-                            color = colorResource(id = R.color.sporex_black),
-                            shape = MaterialTheme.shapes.medium
-                        )
-                        .padding(vertical = 16.dp),
-                    verticalArrangement = Arrangement.spacedBy(1.dp)
+                        .padding(horizontal = 16.dp)
                 ) {
-                    SettingsOption("Your Account") { }
-                    SettingsOption("App Customisation") { }
-                    SettingsOption("Data Personalisation") { }
-                    SettingsOption("Notifications") { }
-                    SettingsOption("Log out") { }
+                    Text(
+                        text = "Dark Mode",
+                        color = colorResource(id = R.color.sporex_white),
+                        modifier = Modifier.weight(1f)
+                    )
+
+                    Switch(
+                        checked = isDarkMode,
+                        onCheckedChange = { isDarkMode = it }   // ✅ no onThemeChange needed yet
+                    )
                 }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                SettingsOption("Your Account") { }
+                SettingsOption("App Customisation") { }
+                SettingsOption("Data Personalisation") { }
+                SettingsOption("Notifications") { }
+                SettingsOption("Log out") { }
             }
         }
     }
