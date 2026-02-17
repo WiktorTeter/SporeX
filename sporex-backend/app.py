@@ -50,6 +50,9 @@ readings_col = db["sensor_readings"]
 # ✅ NEW: products collection
 products_col = db["products"]
 
+# ✅ NEW: posts collection
+posts_col = db["posts"]
+
 app = FastAPI(
     title="SporeX Backend",
     version="0.1.0",
@@ -94,6 +97,28 @@ class ProductDto(BaseModel):
     best_for: str
     steps: list[str]
     warning: str | None = None
+
+# ✅ NEW: post models
+class ReplyDto(BaseModel):
+    user_name: str
+    content: str
+    created_at: datetime | None = None
+
+class PostDto(BaseModel):
+    user_name: str
+    post_name: str
+    content: str
+    created_at: datetime | None = None
+    replies: list[ReplyDto] = []
+
+class PostCreateBody(BaseModel):
+    user_name: str
+    post_name: str
+    content: str
+
+class ReplyCreateBody(BaseModel):
+    user_name: str
+    content: str
 
 # ---------- Routes ----------
 @app.get("/api/health", response_model=BasicResponse)
@@ -204,8 +229,76 @@ def get_product(product_id: str):
         raise HTTPException(status_code=404, detail="Product not found")
     return product
 
+# Posts endpoints
+
+@app.post("/api/posts", response_model=BasicResponse)
+async def create_post(body: PostCreateBody):
+    """Create a new post"""
+    post_doc = {
+        "user_name": body.user_name,
+        "post_name": body.post_name,
+        "content": body.content,
+        "created_at": datetime.now(timezone.utc),
+        "replies": []
+    }
+    result = posts_col.insert_one(post_doc)
+    return {
+        "success": True,
+        "message": f"Post created with ID: {result.inserted_id}"
+    }
+
+@app.get("/api/posts")
+async def list_posts():
+    """Get all posts"""
+    posts = list(posts_col.find({}, {"_id": 0}))
+    return posts
+
+@app.get("/api/posts/{post_id}")
+async def get_post(post_id: str):
+    """Get a specific post by ID"""
+    from bson import ObjectId
+    try:
+        post = posts_col.find_one(
+            {"_id": ObjectId(post_id)},
+            {"_id": 0}
+        )
+    except:
+        raise HTTPException(status_code=400, detail="Invalid post ID")
+    
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return post
+
+@app.post("/api/posts/{post_id}/replies", response_model=BasicResponse)
+async def add_reply(post_id: str, body: ReplyCreateBody):
+    """Add a reply to a post"""
+    from bson import ObjectId
+    try:
+        post_id_obj = ObjectId(post_id)
+    except:
+        raise HTTPException(status_code=400, detail="Invalid post ID")
+    
+    reply_doc = {
+        "user_name": body.user_name,
+        "content": body.content,
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    result = posts_col.update_one(
+        {"_id": post_id_obj},
+        {"$push": {"replies": reply_doc}}
+    )
+    
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Post not found")
+    
+    return {
+        "success": True,
+        "message": "Reply added to post"
+    }
 
 # ----------------------------
 # Settings ENDPOINTS
 # enabling darkmode, profile delete access, log out , navigate to device page
 # ----------------------------
+
