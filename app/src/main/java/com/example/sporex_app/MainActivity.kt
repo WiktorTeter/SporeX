@@ -13,6 +13,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.screens.MainScreen
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
+import com.example.sporex_app.ui.useraccount.SettingsStore
 
 class MainActivity : ComponentActivity() {
 
@@ -23,20 +24,33 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            var isDarkMode by remember {mutableStateOf(false)}
+            val context = this
+            var isDarkMode by remember {mutableStateOf(SettingsStore.getDarkMode(context)) }
 
             SPOREX_AppTheme (darkTheme = isDarkMode)
             {
 
                 Scaffold(
-                    bottomBar = { BottomNavBar(currentScreen = "home") }
-                ) { innerPadding ->
+                    bottomBar = { BottomNavBar() }
+                ) { padding ->
                     MainScreen(
-                        paddingValues = innerPadding,
-                        isDarkMode = isDarkMode,
-                        onThemeChange = { isDarkMode = it})
+                        paddingValues = padding,
+
+                        onThemeChange = { enabled ->
+
+                            isDarkMode = enabled
+
+                            SettingsStore.setDarkMode(context, enabled)
+
+                            },
+                        isDarkMode = isDarkMode
+                    )
                 }
             }
         }
     }
+}
+
+private fun MainActivity.BottomNavBar() {
+    TODO("Not yet implemented")
 }

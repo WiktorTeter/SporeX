@@ -8,7 +8,7 @@ from pydantic import BaseModel, EmailStr
 from pymongo import MongoClient
 from passlib.context import CryptContext
 from datetime import datetime, timezone
-
+from fastapi import FastAPI
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -204,6 +204,12 @@ def get_product(product_id: str):
         raise HTTPException(status_code=404, detail="Product not found")
     return product
 
+
+# Health endpoint for  Render (API) + MongoDB Atlas + Cloud Storage deployment
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 # ----------------------------
 # Settings ENDPOINTS
