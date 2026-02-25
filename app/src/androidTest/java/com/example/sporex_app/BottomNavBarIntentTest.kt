@@ -11,7 +11,7 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.anyIntent
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import com.example.sporex_app.ui.components.UploadActivity
 import com.example.sporex_app.ui.navigation.BottomNavBar
-import com.example.sporex_app.ui.useraccount.ProfileActivity
+import com.example.sporex_app.useraccount.ProfileActivity
 import com.example.sporex_app.ui.device.DeviceActivity
 import org.junit.After
 import org.junit.Before

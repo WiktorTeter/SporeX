@@ -16,21 +16,26 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.sporex_app.ui.navigation.TopBar
+import androidx.compose.foundation.layout.statusBarsPadding
+
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier.fillMaxSize(),
     onUploadClick: () -> Unit,
     onProductsClick: () -> Unit
 ) {
+
+
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(Color(0xFF06A546))
+
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
-            TopBar()
 
+            TopBar()
             Spacer(modifier = Modifier.height(32.dp))
 
             Surface(
@@ -43,7 +48,7 @@ fun HomeScreen(
                         .fillMaxSize()
                         .padding(top = 16.dp, bottom = 12.dp)
                 ) {
-                    Spacer(Modifier.height(16.dp))
+//                    Spacer(Modifier.height(16.dp))
 
                     Text(
                         text = "Welcome Back!",

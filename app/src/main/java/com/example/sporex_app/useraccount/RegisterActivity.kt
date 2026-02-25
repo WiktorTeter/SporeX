@@ -1,4 +1,4 @@
-package com.example.sporex_app.ui.useraccount
+package com.example.sporex_app.useraccount
 
 import android.content.Intent
 import android.os.Bundle

@@ -16,32 +16,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SPOREX_App">
 
-        <activity android:name=".ui.useraccount.RegisterActivity" android:exported="true" />
+        <activity android:name=".useraccount.RegisterActivity" android:exported="true" />
         <activity android:name=".ui.components.UploadActivity" />
         <activity android:name=".ui.components.ConfirmationActivity" />
         <activity android:name=".ui.components.ResultActivity" />
-        <activity android:name=".ui.useraccount.ProfileActivity" />
-        <activity android:name=".ui.useraccount.UserSettings" />
-
+        <activity android:name=".useraccount.ProfileActivity" />
+        <activity android:name=".useraccount.UserSettings" />
+        <activity android:name=".useraccount.LoginActivity" />
         <activity android:name=".ui.components.ProductsActivity" />
         <activity android:name=".ui.components.ProductDetailActivity" />
+        <activity android:name=".ui.community.MyPostsActivity" />
+        <activity android:name=".ui.community.CommunityHP" />
+        <activity android:name=".ui.community.AsthmaSociety" />
+        <activity android:name=".ui.community.CreatePostActivity" />
 
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.SPOREX_App">
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="true"-->
+<!--            android:theme="@style/Theme.SPOREX_App">-->
 
 
 
-        </activity>
+<!--        </activity>-->
 
         <activity
             android:name=".ui.device.DeviceActivity"
             android:exported="true" />
 
         <activity
-            android:name=".ui.useraccount.LoginActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.SPOREX_App">
 

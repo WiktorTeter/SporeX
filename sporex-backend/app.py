@@ -120,6 +120,17 @@ class ReplyCreateBody(BaseModel):
     user_name: str
     content: str
 
+class SettingsModel(BaseModel):
+    dark_mode: bool
+    notifications_enabled: bool
+    data_personalisation: bool
+    app_customisation: dict
+
+
+class UpdateSettingsBody(BaseModel):
+    email: EmailStr
+    settings: SettingsModel
+
 # ---------- Routes ----------
 @app.get("/api/health", response_model=BasicResponse)
 async def health_check():
@@ -148,7 +159,18 @@ async def register(body: RegisterBody):
         "role": "member",
         "status": "active",
         "created_at": datetime.now(timezone.utc),
+
+        "settings": {
+        "dark_mode": False,
+        "notifications_enabled": True,
+        "data_personalisation": True,
+        "app_customisation": {
+            "accent_color": "green",
+            "layout_style": "default"
+        
+           }
     }
+}
 
     if body.name:
         user_doc["name"] = body.name
