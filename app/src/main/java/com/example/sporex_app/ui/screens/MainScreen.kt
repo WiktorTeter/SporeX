@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import com.example.sporex_app.ui.components.HistoryActivity
 import com.example.sporex_app.ui.components.ProductsActivity
 import com.example.sporex_app.ui.components.UploadActivity
 
@@ -24,6 +25,10 @@ fun MainScreen(paddingValues: PaddingValues,
         },
         onProductsClick = {
             context.startActivity(Intent(context, ProductsActivity::class.java))
+        },
+        onHistoryClick = {
+            context.startActivity(Intent(context, HistoryActivity::class.java))
         }
+
     )
 }

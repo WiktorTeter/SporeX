@@ -71,132 +71,136 @@ class UploadActivity : ComponentActivity() {
         }
     }
 }
-            @Composable
-            fun UploadScreen(
-                modifier: Modifier = Modifier,
-                onBack: () -> Unit,
-                onNext: (Uri) -> Unit
-            ) {
-                var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
 
-                val launcher = rememberLauncherForActivityResult(
-                    contract = ActivityResultContracts.GetContent()
-                ) { uri ->
-                    selectedImageUri = uri
+@Composable
+fun UploadScreen(
+    modifier: Modifier = Modifier,
+    onBack: () -> Unit,
+    onNext: (Uri) -> Unit
+) {
+    var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
+
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri -> selectedImageUri = uri }
+
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color(0xFF06A546)), // green background
+        contentAlignment = Alignment.TopCenter
+    ) {
+
+        // Black rounded container
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 20.dp, vertical = 24.dp),
+            color = Color.Black,
+            shape = RoundedCornerShape(30.dp)
+        ) {
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+
+                // Back button
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    TextButton(onClick = onBack) {
+                        Text("← Back", color = Color.White)
+                    }
                 }
 
-                Column(
-                    modifier = modifier
-                        .fillMaxSize()
-                        .background(Color(0xFF06A546))
-                        .padding(24.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
+                Spacer(Modifier.height(10.dp))
 
-                    // Back button (clear label for accessibility)
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.Start
+                // Title & instructions
+                Text(
+                    "Upload Mould Image",
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = Color.White
+                )
+
+                Spacer(Modifier.height(8.dp))
+
+                Text(
+                    "Tap the box below to choose a photo from your device. Make sure the mould is clearly visible.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.White.copy(alpha = 0.85f)
+                )
+
+                Spacer(Modifier.height(24.dp))
+
+                // White upload card
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp),
+                    shape = RoundedCornerShape(20.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    onClick = { launcher.launch("image/*") }
+                ) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
                     ) {
-                        TextButton(
-                            onClick = onBack
-                        ) {
-                            Text(
-                                text = "← Back",
-                                color = Color.Black
+                        if (selectedImageUri == null) {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                Text(
+                                    "Tap to upload a photo",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    color = Color.Black
+                                )
+                                Spacer(Modifier.height(6.dp))
+                                Text(
+                                    "Supported formats: JPG or PNG",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = Color.Gray
+                                )
+                            }
+                        } else {
+                            Image(
+                                painter = rememberAsyncImagePainter(selectedImageUri),
+                                contentDescription = "Selected image",
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
                             )
                         }
                     }
+                }
 
-                    Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(20.dp))
 
+                if (selectedImageUri != null) {
                     Text(
-                        text = "Upload Mould Image",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = Color.Black
-                    )
-
-                    Spacer(Modifier.height(8.dp))
-
-                    Text(
-                        text = "Tap the box below to choose a photo from your device. Make sure the mould is clearly visible.",
+                        "Image selected. Press Continue to proceed.",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = Color.Black.copy(alpha = 0.85f)
+                        color = Color.White
                     )
+                }
 
-                    Spacer(Modifier.height(28.dp))
+                Spacer(Modifier.height(20.dp))
 
-                    Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(220.dp),
-                        shape = RoundedCornerShape(20.dp),
-                        colors = CardDefaults.cardColors(containerColor = Color.White),
-                        onClick = { launcher.launch("image/*") }
-                    ) {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            if (selectedImageUri == null) {
-                                Column(
-                                    horizontalAlignment = Alignment.CenterHorizontally
-                                ) {
-                                    Text(
-                                        text = "Tap to upload a photo",
-                                        style = MaterialTheme.typography.titleMedium,
-                                        color = Color.Black
-                                    )
-                                    Spacer(Modifier.height(6.dp))
-                                    Text(
-                                        text = "Supported formats: JPG or PNG",
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = Color.Gray
-                                    )
-                                }
-                            } else {
-                                Image(
-                                    painter = rememberAsyncImagePainter(selectedImageUri),
-                                    contentDescription = "Selected image of mould for analysis",
-                                    modifier = Modifier.fillMaxSize(),
-                                    contentScale = ContentScale.Crop
-                                )
-                            }
-                        }
-                    }
-
-                    Spacer(Modifier.height(20.dp))
-
-                    // Helper text after selection
-                    if (selectedImageUri != null) {
-                        Text(
-                            text = "Image selected. Press Continue to proceed.",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = Color.Black
-                        )
-                    }
-
-                    Spacer(Modifier.height(20.dp))
-
-                    Button(
-                        onClick = { selectedImageUri?.let(onNext) },
-                        enabled = selectedImageUri != null,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(52.dp),
-                        shape = RoundedCornerShape(14.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.Black,
-                            disabledContainerColor = Color.Black.copy(alpha = 0.4f)
-                        )
-                    ) {
-                        Text(
-                            text = "Continue",
-                            color = Color.White
-                        )
-                    }
+                Button(
+                    onClick = { selectedImageUri?.let(onNext) },
+                    enabled = selectedImageUri != null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.White,
+                        disabledContainerColor = Color.White.copy(alpha = 0.4f)
+                    )
+                ) {
+                    Text("Continue", color = Color.Black)
                 }
             }
-
-
-
+        }
+    }
+}

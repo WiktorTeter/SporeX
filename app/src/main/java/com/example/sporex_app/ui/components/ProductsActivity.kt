@@ -16,6 +16,13 @@ import com.example.sporex_app.network.ProductSummary
 import com.example.sporex_app.network.RetrofitClient
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
 import kotlinx.coroutines.launch
+import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+import com.example.sporex_app.ui.navigation.BottomNavBar
+import com.example.sporex_app.ui.navigation.TopBar
+
 
 class ProductsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +43,10 @@ class ProductsActivity : ComponentActivity() {
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ProductsScreen(onSelect: (String) -> Unit) {
+fun ProductsScreen(onSelect: (String) -> Unit) {
     val scope = rememberCoroutineScope()
 
     var products by remember { mutableStateOf<List<ProductSummary>>(emptyList()) }
@@ -63,33 +71,76 @@ private fun ProductsScreen(onSelect: (String) -> Unit) {
     }
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text("Recommended Products") }) }
+        topBar = { TopBar() },
+        bottomBar = { BottomNavBar(currentScreen = "products") },
+        containerColor = Color(0xFF06A546) // your app's green background
     ) { padding ->
-        Column(
+
+        Box(
             modifier = Modifier
-                .padding(padding)
                 .fillMaxSize()
+                .padding(padding)
+                .background(Color(0xFF06A546))
                 .padding(16.dp)
         ) {
+
             when {
-                loading -> CircularProgressIndicator()
-                error != null -> Text(error!!, color = MaterialTheme.colorScheme.error)
+                loading -> {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator(color = Color.White)
+                    }
+                }
+
+                error != null -> {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = error!!,
+                            color = Color.White,
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                    }
+                }
+
                 else -> {
-                    LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    LazyColumn(
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
                         items(products) { p ->
                             Card(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .clickable { onSelect(p.id) }
+                                    .clickable { onSelect(p.id) },
+                                shape = RoundedCornerShape(16.dp),
+                                colors = CardDefaults.cardColors(containerColor = Color.Black),
+                                elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
                             ) {
-                                Column(Modifier.padding(16.dp)) {
-                                    Text(p.name, style = MaterialTheme.typography.titleMedium)
-                                    Spacer(Modifier.height(8.dp))
-                                    Text("Best for: ${p.best_for}")
-                                    Spacer(Modifier.height(8.dp))
+                                Column(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(16.dp)
+                                ) {
+                                    Text(
+                                        p.name,
+                                        style = MaterialTheme.typography.titleMedium,
+                                        color = Color.White
+                                    )
+                                    Spacer(Modifier.height(6.dp))
+                                    Text(
+                                        "Best for: ${p.best_for}",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = Color.LightGray
+                                    )
+                                    Spacer(Modifier.height(6.dp))
                                     Text(
                                         text = if (p.sustainable) "Sustainable option ✅" else "Standard option",
-                                        style = MaterialTheme.typography.bodySmall
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = Color(0xFF06FF4B) // highlight green for sustainable
                                     )
                                 }
                             }
@@ -100,3 +151,69 @@ private fun ProductsScreen(onSelect: (String) -> Unit) {
         }
     }
 }
+
+
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//private fun ProductsScreen(onSelect: (String) -> Unit) {
+//    val scope = rememberCoroutineScope()
+//
+//    var products by remember { mutableStateOf<List<ProductSummary>>(emptyList()) }
+//    var loading by remember { mutableStateOf(true) }
+//    var error by remember { mutableStateOf<String?>(null) }
+//
+//    LaunchedEffect(Unit) {
+//        scope.launch {
+//            try {
+//                val res = RetrofitClient.api.getProducts()
+//                if (res.isSuccessful) {
+//                    products = res.body().orEmpty()
+//                } else {
+//                    error = "Failed to load products (${res.code()})"
+//                }
+//            } catch (e: Exception) {
+//                error = "Network error: ${e.localizedMessage ?: "Unknown error"}"
+//            } finally {
+//                loading = false
+//            }
+//        }
+//    }
+//
+//    Scaffold(
+//        topBar = { TopAppBar(title = { Text("Recommended Products") }) }
+//    ) { padding ->
+//        Column(
+//            modifier = Modifier
+//                .padding(padding)
+//                .fillMaxSize()
+//                .padding(16.dp)
+//        ) {
+//            when {
+//                loading -> CircularProgressIndicator()
+//                error != null -> Text(error!!, color = MaterialTheme.colorScheme.error)
+//                else -> {
+//                    LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+//                        items(products) { p ->
+//                            Card(
+//                                modifier = Modifier
+//                                    .fillMaxWidth()
+//                                    .clickable { onSelect(p.id) }
+//                            ) {
+//                                Column(Modifier.padding(16.dp)) {
+//                                    Text(p.name, style = MaterialTheme.typography.titleMedium)
+//                                    Spacer(Modifier.height(8.dp))
+//                                    Text("Best for: ${p.best_for}")
+//                                    Spacer(Modifier.height(8.dp))
+//                                    Text(
+//                                        text = if (p.sustainable) "Sustainable option ✅" else "Standard option",
+//                                        style = MaterialTheme.typography.bodySmall
+//                                    )
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

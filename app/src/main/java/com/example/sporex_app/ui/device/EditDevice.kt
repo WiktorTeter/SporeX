@@ -35,7 +35,7 @@ fun EditDeviceScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(id = R.color.sporex_black))
+                .background(Color(0xFF06A546))
                 .padding(
                     top = padding.calculateTopPadding(),
                     bottom = padding.calculateBottomPadding(),

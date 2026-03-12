@@ -52,6 +52,7 @@ class DeviceActivity : ComponentActivity() {
                         )
                     }
 
+
                     composable("create_device") {
                         CreateDeviceScreen(
                             onCreateClick = { deviceName ->

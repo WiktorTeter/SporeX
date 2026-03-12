@@ -107,21 +107,21 @@ fun MoldResultScreen() {
             onClick = { Toast.makeText(null, "Viewing Service Details", Toast.LENGTH_SHORT).show() }
         )
 
-        Spacer(Modifier.height(12.dp))
+//        Spacer(Modifier.height(12.dp))
 
-        Button(
-            onClick = { Toast.makeText(null, "Ask Question clicked", Toast.LENGTH_SHORT).show() },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(56.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Black,
-                contentColor = Color.White
-            ),
-            shape = RoundedCornerShape(14.dp)
-        ) {
-            Text("Ask Question")
-        }
+//        Button(
+//            onClick = { Toast.makeText(null, "Ask Question clicked", Toast.LENGTH_SHORT).show() },
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .height(56.dp),
+//            colors = ButtonDefaults.buttonColors(
+//                containerColor = Color.Black,
+//                contentColor = Color.White
+//            ),
+//            shape = RoundedCornerShape(14.dp)
+//        ) {
+//            Text("Ask Question")
+//        }
     }
 }
 

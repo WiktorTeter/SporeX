@@ -99,10 +99,11 @@ fun UserSettingsScreen() {
 
 
                 Text(
-                    text = "Appearence",
+                    text = "Appearance",
                     fontSize = 30.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    color = Color.White,
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))

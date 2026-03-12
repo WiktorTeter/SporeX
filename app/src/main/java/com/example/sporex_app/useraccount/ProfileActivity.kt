@@ -20,6 +20,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,34 +37,40 @@ import com.example.sporex_app.ui.community.CommunityHP
 import com.example.sporex_app.ui.components.HistoryActivity
 import com.example.sporex_app.ui.device.DeviceActivity
 import com.example.sporex_app.ui.navigation.TopBar
-
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.*
 
 class ProfileActivity : ComponentActivity() {
+
+    private var usernameState by mutableStateOf("User")
+
+    private val editProfileLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val updatedUsername = result.data?.getStringExtra("username")
+                if (!updatedUsername.isNullOrEmpty()) {
+                    usernameState = updatedUsername
+                }
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val username = intent.getStringExtra("username") ?: "User"
+        usernameState = intent.getStringExtra("username") ?: "User"
 
         setContent {
             SPOREX_AppTheme {
-//                ProfileScreen(
-//                    username = username,
-//                    onHistoryClick = { startActivity(Intent(this, HistoryActivity::class.java)) },
-//                    onPostsClick = { startActivity(Intent(this, CommunityHP::class.java)) },
-//                    onDeviceClick = { startActivity(Intent(this, DeviceActivity::class.java)) },
-//                    onSettingsClick = { startActivity(Intent(this, UserSettings::class.java)) }
-//                )
                 ProfileScreen(
-                    username = username,
+                    username = usernameState,
                     onHistoryClick = { startActivity(Intent(this, HistoryActivity::class.java)) },
                     onPostsClick = { startActivity(Intent(this, CommunityHP::class.java)) },
                     onDeviceClick = { startActivity(Intent(this, DeviceActivity::class.java)) },
                     onSettingsClick = { startActivity(Intent(this, UserSettings::class.java)) },
                     onEditProfileClick = {
                         val intent = Intent(this, EditProfileActivity::class.java)
-                        intent.putExtra("username", username)
-                        startActivity(intent)
+                        intent.putExtra("username", usernameState)
+                        editProfileLauncher.launch(intent)
                     }
                 )
             }
@@ -74,6 +81,7 @@ class ProfileActivity : ComponentActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
+
 
 @Composable
 fun ProfileScreen(

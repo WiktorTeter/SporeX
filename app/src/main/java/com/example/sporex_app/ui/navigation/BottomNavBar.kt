@@ -32,7 +32,7 @@ fun BottomNavBar(currentScreen: String) {
                     when (item.route) {
                         "home" -> context.startActivity(Intent(context, MainActivity::class.java))
                         "devices" -> context.startActivity(Intent(context, DeviceActivity::class.java))
-                        "camera" -> context.startActivity(Intent(context, UploadActivity::class.java))  // Add action for camera
+                        "camera" -> context.startActivity(Intent(context, UploadActivity::class.java))
                         "profile" -> context.startActivity(Intent(context, ProfileActivity::class.java))
                     }
                 },

@@ -3,8 +3,12 @@ package com.example.sporex_app.ui.device
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.LayoutDirection
@@ -40,7 +44,7 @@ fun DeviceDashboardScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFF08A045))
+                .background(Color(0xFF06A546))
                 .padding(
                     bottom = padding.calculateBottomPadding(),
                     start = padding.calculateStartPadding(LayoutDirection.Ltr),
@@ -76,24 +80,38 @@ fun DeviceDashboardScreen(
                     Card(
                         onClick = { expanded = !expanded },
                         modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFF3A3A3A)
-                        )
+                        shape = RoundedCornerShape(20.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color(0xFF3A3A3A)),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
                     ) {
-                        Column(Modifier.padding(16.dp)) {
-                            Text(
-                                "Basic Readings",
-                                style = MaterialTheme.typography.titleMedium,
-                                color = Color.White
-                            )
+                        Column(modifier = Modifier.padding(16.dp)) {
+
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    "Basic Readings",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    color = Color.White
+                                )
+                                Icon(
+                                    imageVector = if (expanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                                    contentDescription = "Expand",
+                                    tint = Color.White
+                                )
+                            }
 
                             if (expanded) {
                                 Spacer(Modifier.height(12.dp))
-                                StatRow("AIR QUALITY", "2", "Good")
-                                StatRow("Humidity", "91%")
-                                StatRow("CO₂", "2.77 ppm")
-                                StatRow("% Chance of Mould", "less than 10%")
+                                StatRow(label = "Air Quality", value = "2", desc = "Good")
+                                Divider(color = Color.LightGray.copy(alpha = 0.3f), thickness = 1.dp)
+                                StatRow(label = "Humidity", value = "91%")
+                                Divider(color = Color.LightGray.copy(alpha = 0.3f), thickness = 1.dp)
+                                StatRow(label = "CO₂", value = "2.77 ppm")
+                                Divider(color = Color.LightGray.copy(alpha = 0.3f), thickness = 1.dp)
+                                StatRow(label = "% Chance of Mould", value = "less than 10%")
                             }
                         }
                     }
@@ -120,26 +138,62 @@ fun DeviceDashboardScreen(
 @Composable
 fun StatRow(label: String, value: String, desc: String? = null) {
     Column(
-        Modifier
+        modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 6.dp)
+            .padding(vertical = 8.dp)
     ) {
-        Text(
-            text = label.uppercase(),
-            style = MaterialTheme.typography.bodySmall,
-            color = Color.White
-        )
-        Text(
-            text = value,
-            style = MaterialTheme.typography.bodyLarge,
-            color = Color.White
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = label.uppercase(),
+                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
+                color = Color.White // stronger contrast
+            )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Medium),
+                color = Color(0xFF06FF4B) // optional: highlight key values like Humidity/CO2
+            )
+        }
+
         desc?.let {
             Text(
                 text = it,
-                style = MaterialTheme.typography.bodySmall,
-                color = Color.LightGray
+                style = MaterialTheme.typography.bodySmall.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Normal),
+                color = Color.LightGray,
+                modifier = Modifier.padding(top = 2.dp)
             )
         }
     }
 }
+
+
+//@Composable
+//fun StatRow(label: String, value: String, desc: String? = null) {
+//    Column(
+//        Modifier
+//            .fillMaxWidth()
+//            .padding(vertical = 6.dp)
+//    ) {
+//        Text(
+//            text = label.uppercase(),
+//            style = MaterialTheme.typography.bodySmall,
+//            color = Color.White
+//        )
+//        Text(
+//            text = value,
+//            style = MaterialTheme.typography.bodyLarge,
+//            color = Color.White
+//        )
+//        desc?.let {
+//            Text(
+//                text = it,
+//                style = MaterialTheme.typography.bodySmall,
+//                color = Color.LightGray
+//            )
+//        }
+//    }
+//}
