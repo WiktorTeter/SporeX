@@ -15,14 +15,3 @@ class OnboardingPageOne (context: Context){
         prefs.edit().putBoolean("first_launch", false).apply()
     }
 }
-
-annotation class OnboardingManager(val activity: MainActivity) {
-    fun isFirstLaunch() {
-        TODO("Not yet implemented")
-
-    }
-
-    fun finishOnboarding() {
-        TODO("Not yet implemented")
-    }
-}

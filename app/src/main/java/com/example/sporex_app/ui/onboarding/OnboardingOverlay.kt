@@ -1,6 +1,5 @@
 package com.example.sporex_app.ui.onboarding
 
-import android.graphics.Color.alpha
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,7 +29,7 @@ fun OnboardingOverlay(
     onSkip: () -> Unit
 ) {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha().6f))
+        modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.6f))
     ) {
         Card(
             modifier = Modifier.align(Alignment.Center).padding(24.dp),

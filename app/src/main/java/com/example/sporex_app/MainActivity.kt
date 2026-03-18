@@ -13,8 +13,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.screens.MainScreen
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
-import com.example.sporex_app.ui.onboarding.OnboardingManager
-import com.example.sporex_app.ui.screens.HomeScreen
+import com.example.sporex_app.ui.onboarding.OnboardingPageOne
+
 
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val onboardingManager = OnboardingManager(this)
+        val onboardingManager = OnboardingPageOne(this)
 
         setContent {
             val isFirstLaunch = onboardingManager.isFirstLaunch()
@@ -33,7 +33,10 @@ class MainActivity : ComponentActivity() {
                 showOnboardingInitially = isFirstLaunch,
                 onOnboardingFinished = {
                     onboardingManager.finishOnboarding()
-                })
+
+                }
+
+                )
         
         
             var isDarkMode by remember {mutableStateOf(false)}
@@ -52,10 +55,12 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
+
 
 private fun MainActivity.HomeScreen(
     showOnboardingInitially: Any,
     onOnboardingFinished: () -> Unit
 ) {
+
+}
 }

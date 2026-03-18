@@ -29,8 +29,8 @@ fun HomeScreen(
     modifier: Modifier = Modifier.fillMaxSize(),
     onUploadClick: () -> Unit,
     onProductsClick: () -> Unit,
-    showOnboardingInitially: Unit,
-    onOnboardingFinished: () -> Unit
+    showOnboardingInitially: Boolean = false,
+    onOnboardingFinished: () -> Unit = {}
 ) {
     val onboardingSteps = listOf(
         OnboardingStep(
@@ -48,7 +48,7 @@ fun HomeScreen(
     )
 
     var stepIndex by remember { mutableStateOf(0) }
-    var showOnboarding by remember { mutableStateOf(true) }
+    var showOnboarding by remember { mutableStateOf(showOnboardingInitially) }
 
     Box{
         if (showOnboarding) {
