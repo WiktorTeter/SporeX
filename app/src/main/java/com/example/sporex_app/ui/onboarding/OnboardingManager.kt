@@ -1,6 +1,7 @@
 package com.example.sporex_app.ui.onboarding
 
 import android.content.Context
+import com.example.sporex_app.MainActivity
 
 class OnboardingPageOne (context: Context){
 
@@ -12,5 +13,16 @@ class OnboardingPageOne (context: Context){
 
     fun finishOnboarding(){
         prefs.edit().putBoolean("first_launch", false).apply()
+    }
+}
+
+annotation class OnboardingManager(val activity: MainActivity) {
+    fun isFirstLaunch() {
+        TODO("Not yet implemented")
+
+    }
+
+    fun finishOnboarding() {
+        TODO("Not yet implemented")
     }
 }

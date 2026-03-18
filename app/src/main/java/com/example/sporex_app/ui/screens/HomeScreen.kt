@@ -16,10 +16,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.sporex_app.ui.navigation.TopBar
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.example.sporex_app.ui.onboarding.OnboardingOverlay
 import com.example.sporex_app.ui.onboarding.OnboardingStep
 
 
@@ -27,7 +28,9 @@ import com.example.sporex_app.ui.onboarding.OnboardingStep
 fun HomeScreen(
     modifier: Modifier = Modifier.fillMaxSize(),
     onUploadClick: () -> Unit,
-    onProductsClick: () -> Unit
+    onProductsClick: () -> Unit,
+    showOnboardingInitially: Unit,
+    onOnboardingFinished: () -> Unit
 ) {
     val onboardingSteps = listOf(
         OnboardingStep(
@@ -46,6 +49,22 @@ fun HomeScreen(
 
     var stepIndex by remember { mutableStateOf(0) }
     var showOnboarding by remember { mutableStateOf(true) }
+
+    Box{
+        if (showOnboarding) {
+            OnboardingOverlay(
+                step = onboardingSteps[stepIndex],
+                onNext = {
+                    if (stepIndex < onboardingSteps.size - 1) {
+                        stepIndex++
+                    } else {
+                        showOnboarding = false
+                    }
+                },
+                onSkip = { showOnboarding = false }
+            )
+        }
+    }
 
 
     Box(

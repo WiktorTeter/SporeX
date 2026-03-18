@@ -30,7 +30,7 @@ fun OnboardingOverlay(
     onSkip: () -> Unit
 ) {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha.6f))
+        modifier = Modifier.fillMaxSize().background(Color.Black.copy(alpha().6f))
     ) {
         Card(
             modifier = Modifier.align(Alignment.Center).padding(24.dp),
