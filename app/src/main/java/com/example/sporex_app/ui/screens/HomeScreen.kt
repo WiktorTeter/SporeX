@@ -17,6 +17,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.sporex_app.ui.navigation.TopBar
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import com.example.sporex_app.ui.onboarding.OnboardingStep
 
 
 @Composable
@@ -25,6 +29,23 @@ fun HomeScreen(
     onUploadClick: () -> Unit,
     onProductsClick: () -> Unit
 ) {
+    val onboardingSteps = listOf(
+        OnboardingStep(
+            title = "Welcome to SPOREX",
+            description = "Your personal mold detection assistant. Let's get started!"
+        ),
+        OnboardingStep(
+            title = "Scan Your Home",
+            description = "Use the camera to scan for mold and get instant results."
+        ),
+        OnboardingStep(
+            title = "Notifications",
+            description = "Check your past scans and monitor your home's health over time."
+        )
+    )
+
+    var stepIndex by remember { mutableStateOf(0) }
+    var showOnboarding by remember { mutableStateOf(true) }
 
 
     Box(
