@@ -3,10 +3,7 @@ package com.example.sporex_app
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.performTextInput
-import androidx.compose.ui.test.hasSetTextAction
 import com.example.sporex_app.ui.device.CreateDeviceScreen
-import com.example.sporex_app.ui.theme.SPOREX_AppTheme
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -17,20 +14,29 @@ class CreateDeviceScreenTest {
     val composeRule = createComposeRule()
 
     @Test
-    fun addDevice_passesEnteredName_toCallback() {
-        var captured = ""
-
+    fun scanForDevices_showsMockDevices() {
         composeRule.setContent {
-            SPOREX_AppTheme(dynamicColor = false) {
-                CreateDeviceScreen(onCreateClick = { captured = it })
-            }
+            CreateDeviceScreen(onCreateClick = {})
         }
 
-        // There is only one TextField, so grab the first node that supports text input
-        composeRule.onAllNodes(hasSetTextAction())[0].performTextInput("AIREX 400")
+        composeRule.onNodeWithText("Scan for Devices").assertExists().performClick()
 
-        composeRule.onNodeWithText("Add Device").assertExists().performClick()
+        composeRule.onNodeWithText("Sporex Sensor A").assertExists()
+        composeRule.onNodeWithText("Sporex Sensor B").assertExists()
+        composeRule.onNodeWithText("Arduino Device").assertExists()
+    }
 
-        assertEquals("AIREX 400", captured)
+    @Test
+    fun selectingDevice_callsCallback_withChosenDeviceName() {
+        var selected = ""
+
+        composeRule.setContent {
+            CreateDeviceScreen(onCreateClick = { selected = it })
+        }
+
+        composeRule.onNodeWithText("Scan for Devices").performClick()
+        composeRule.onNodeWithText("Sporex Sensor A").performClick()
+
+        assertEquals("Sporex Sensor A", selected)
     }
 }

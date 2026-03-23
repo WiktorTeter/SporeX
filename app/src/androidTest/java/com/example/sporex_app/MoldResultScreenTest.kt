@@ -1,10 +1,11 @@
 package com.example.sporex_app
 
+import androidx.compose.ui.test.assertHasClickAction
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
 import com.example.sporex_app.ui.components.MoldResultScreen
-import com.example.sporex_app.ui.theme.SPOREX_AppTheme
 import org.junit.Rule
 import org.junit.Test
 
@@ -14,23 +15,29 @@ class MoldResultScreenTest {
     val composeRule = createComposeRule()
 
     @Test
-    fun viewDetails_opensBottomSheet_and_mockTest_opensAndClosesDialog() {
+    fun moldResultScreen_showsDetectedMold_andRemedies() {
         composeRule.setContent {
-            SPOREX_AppTheme(dynamicColor = false) {
-                MoldResultScreen()
-            }
+            MoldResultScreen()
         }
 
-        // Open bottom sheet
-        composeRule.onNodeWithText("View Details").assertExists().performClick()
-        composeRule.onNodeWithText("Cladosporium Details").assertExists()
+        composeRule.onNodeWithText("Mold Detected").assertIsDisplayed()
+        composeRule.onNodeWithText("Cladosporium – estimated 65% likelihood").assertIsDisplayed()
+        composeRule.onNodeWithText("Suggested Remedies").assertIsDisplayed()
 
-        // Open dialog
-        composeRule.onNodeWithText("Run Mock Air Quality Test").assertExists().performClick()
-        composeRule.onNodeWithText("Mock Air Quality Test").assertExists()
+        composeRule.onNodeWithText("Mold Remover Spray").assertIsDisplayed()
+        composeRule.onNodeWithText("Mold Removal Service").assertIsDisplayed()
 
-        // Close dialog
-        composeRule.onNodeWithText("Close").assertExists().performClick()
-        composeRule.onNodeWithText("Mock Air Quality Test").assertDoesNotExist()
+        composeRule.onNodeWithText("Ask Question").assertExists().assertHasClickAction()
+        composeRule.onNodeWithText("View More Remedies").assertExists().assertHasClickAction()
+    }
+
+    @Test
+    fun remedyCards_showViewDetailsButtons() {
+        composeRule.setContent {
+            MoldResultScreen()
+        }
+
+        composeRule.onAllNodesWithText("View Details")[0].assertExists().assertHasClickAction()
+        composeRule.onAllNodesWithText("View Details")[1].assertExists().assertHasClickAction()
     }
 }
