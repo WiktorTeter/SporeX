@@ -1,4 +1,4 @@
-package com.example.sporex_app.ui.useraccount
+package com.example.sporex_app.useraccount
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -19,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
@@ -51,6 +51,12 @@ class LoginActivity : ComponentActivity() {
 
                 if (response.isSuccessful && response.body()?.success == true) {
                     val msg = response.body()?.message ?: "Login successful"
+                    val prefs = getSharedPreferences("auth", MODE_PRIVATE)
+
+                    prefs.edit()
+                        .putString("user_email", email)
+                        .apply()
+
 
                     onResult(true, msg)
 
@@ -58,8 +64,11 @@ class LoginActivity : ComponentActivity() {
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()
                 } else {
-                    val msg = response.body()?.message
-                        ?: "Login failed (${response.code()})"
+                    val msg = when (response.code()) {
+                        403 -> "Please verify your email. Check your inbox."
+                        401 -> "Invalid email or password"
+                        else -> response.body()?.message ?: "Login failed (${response.code()})"
+                    }
 
                     onResult(false, msg)
                 }
@@ -134,6 +143,7 @@ fun LoginScreen() {
                 value = password,
                 onValueChange = { password = it },
                 label = { Text("Password") },
+                visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth()
             )
 

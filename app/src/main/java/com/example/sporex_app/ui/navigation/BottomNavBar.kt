@@ -11,7 +11,7 @@ import com.example.sporex_app.MainActivity
 import com.example.sporex_app.R
 import com.example.sporex_app.ui.components.UploadActivity
 import com.example.sporex_app.ui.device.DeviceActivity
-import com.example.sporex_app.ui.useraccount.ProfileActivity
+import com.example.sporex_app.useraccount.ProfileActivity
 
 @Composable
 fun BottomNavBar(currentScreen: String) {

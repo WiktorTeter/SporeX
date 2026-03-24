@@ -4,14 +4,16 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import com.example.sporex_app.network.RetrofitClient
+import kotlinx.coroutines.launch
 
 object RetrofitClient {
 
 
     // base URL ADDED on render
 
-    private const val BASE_URL = "https://sporex.onrender.com"
-
+//    private const val BASE_URL = "https://sporex.onrender.com"
+private const val BASE_URL = "https://sporex.onrender.com/"
 
     private val logging = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
