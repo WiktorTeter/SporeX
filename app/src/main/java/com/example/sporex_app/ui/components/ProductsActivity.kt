@@ -21,6 +21,7 @@ import com.example.sporex_app.network.RetrofitClient
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
 import kotlinx.coroutines.launch
 
+
 class ProductsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +41,10 @@ class ProductsActivity : ComponentActivity() {
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ProductsScreen(onSelect: (String) -> Unit) {
+fun ProductsScreen(onSelect: (String) -> Unit) {
     val scope = rememberCoroutineScope()
 
     var products by remember { mutableStateOf<List<ProductSummary>>(emptyList()) }
@@ -174,3 +176,5 @@ private fun ProductsScreen(onSelect: (String) -> Unit) {
         }
     }
 }
+
+

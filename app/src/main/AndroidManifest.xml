@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SPOREX_App">
 
-        <activity android:name=".useraccount.RegisterActivity" android:exported="true" />
+        <activity android:name=".useraccount.RegisterActivity" />
         <activity android:name=".ui.components.UploadActivity" />
         <activity android:name=".ui.components.ConfirmationActivity" />
         <activity android:name=".ui.components.ResultActivity" />
@@ -36,8 +36,11 @@
         <activity android:name=".ui.components.HistoryActivity" />
         <activity android:name=".ui.device.DeviceActivity" />
 
-        <activity android:name=".MainActivity" />
+<activity android:name=".MainActivity" />
 
+
+
+        <!--            android:name=".useraccount.LoginActivity"-->
 
         <activity
             android:name=".useraccount.LoginActivity"
