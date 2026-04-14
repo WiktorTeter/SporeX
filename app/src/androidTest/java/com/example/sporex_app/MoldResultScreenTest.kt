@@ -5,7 +5,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
-import com.example.sporex_app.ui.components.MoldResultScreen
+import com.example.sporex_app.ui.components.ResultActivity
 import org.junit.Rule
 import org.junit.Test
 
@@ -17,7 +17,7 @@ class MoldResultScreenTest {
     @Test
     fun moldResultScreen_showsDetectedMold_andRemedies() {
         composeRule.setContent {
-            MoldResultScreen()
+            ResultActivity()
         }
 
         composeRule.onNodeWithText("Mold Detected").assertIsDisplayed()
@@ -34,7 +34,7 @@ class MoldResultScreenTest {
     @Test
     fun remedyCards_showViewDetailsButtons() {
         composeRule.setContent {
-            MoldResultScreen()
+            ResultActivity()
         }
 
         composeRule.onAllNodesWithText("View Details")[0].assertExists().assertHasClickAction()

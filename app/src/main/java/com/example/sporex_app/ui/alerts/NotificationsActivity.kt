@@ -1,6 +1,5 @@
 package com.example.sporex_app.ui.alerts
 
-import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.PackageManager
@@ -17,15 +16,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.app.NotificationCompat
 import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.navigation.TopBar
-import androidx.compose.ui.res.colorResource
-import com.example.sporex_app.R
+import com.example.sporex_app.ui.theme.SPOREX_AppTheme
+import com.example.sporex_app.utils.isDarkMode
 
 
 class NotificationsActivity : ComponentActivity() {
@@ -56,11 +54,10 @@ class NotificationsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Trigger a test system notification
         sendTestNotification(this)
 
         setContent {
-            MaterialTheme {
+            SPOREX_AppTheme(darkTheme = isDarkMode(this)) {
                 NotificationsScreen(notificationsList)
             }
         }
@@ -72,21 +69,13 @@ class NotificationsActivity : ComponentActivity() {
 
         val notificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
-                ?: return // safely exit if null
+                ?: return
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
             }
         }
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            val channel = NotificationChannel(
-//                channelId,
-//                "Sporex Notifications",
-//                NotificationManager.IMPORTANCE_DEFAULT
-//            )
-//            notificationManager.createNotificationChannel(channel)
-//        }
 
         val notification = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(android.R.drawable.ic_dialog_info) // must be valid
@@ -105,15 +94,17 @@ fun NotificationsScreen(notifications: List<NotificationItem>) {
     Scaffold(
         topBar = { TopBar() },
         bottomBar = { BottomNavBar(currentScreen = "alerts") },
-        containerColor = colorResource(id = R.color.sporex_green)
+        containerColor = MaterialTheme.colorScheme.primary
     ) { paddingValues ->
 
         LazyColumn(
             contentPadding = paddingValues,
             modifier = Modifier
                 .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
                 .padding(horizontal = 16.dp, vertical = 8.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
+
         ) {
 
             items(notifications) { notification ->
@@ -126,19 +117,22 @@ fun NotificationsScreen(notifications: List<NotificationItem>) {
 
 @Composable
 fun NotificationCard(notification: NotificationItem) {
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color(0xFFF1F1F1), RoundedCornerShape(12.dp))
+            .background(
+                // Changed from surface to primary
+                color = MaterialTheme.colorScheme.primary,
+                shape = RoundedCornerShape(12.dp)
+            )
             .padding(16.dp)
     ) {
-
         Text(
             text = notification.title,
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF333333)
+            // Changed to onPrimary so it's readable on the green background
+            color = MaterialTheme.colorScheme.onPrimary
         )
 
         Spacer(modifier = Modifier.height(4.dp))
@@ -146,7 +140,8 @@ fun NotificationCard(notification: NotificationItem) {
         Text(
             text = notification.message,
             fontSize = 14.sp,
-            color = Color(0xFF555555)
+            // Changed to onPrimary (or a slightly transparent version of it)
+            color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -154,7 +149,8 @@ fun NotificationCard(notification: NotificationItem) {
         Text(
             text = notification.time,
             fontSize = 12.sp,
-            color = Color(0xFF999999),
+            // Adjusted for visibility on green
+            color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.6f),
             modifier = Modifier.align(Alignment.End)
         )
     }
