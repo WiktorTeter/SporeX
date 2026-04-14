@@ -12,8 +12,8 @@ object RetrofitClient {
 
     // base URL ADDED on render
 
-//    private const val BASE_URL = "https://sporex.onrender.com"
-private const val BASE_URL = "http://10.0.2.2:8000/"
+//    private const val BASE_URL = "https://sporex.onrender.com" or "http://10.0.2.2:8000/"
+private const val BASE_URL = "https://sporex.onrender.com"
 
     private val logging = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
