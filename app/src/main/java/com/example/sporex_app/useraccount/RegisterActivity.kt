@@ -21,9 +21,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.widget.Toast
+import com.example.sporex_app.MainActivity
 import com.example.sporex_app.network.RegisterRequest
 import com.example.sporex_app.network.RetrofitClient
 import com.example.sporex_app.network.SporexApi
+import com.example.sporex_app.ui.screens.HomeScreen
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
@@ -138,6 +140,10 @@ fun RegisterScreen() {
                                     "Account created successfully!",
                                     Toast.LENGTH_SHORT
                                 ).show()
+
+                                val intent = Intent(context, MainActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                context.startActivity(intent)
 
                             } else {
                                 Log.e("REGISTER", "Error: ${response.code()}")

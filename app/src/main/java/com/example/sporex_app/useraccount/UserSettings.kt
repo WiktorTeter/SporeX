@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.example.sporex_app.network.RetrofitClient
 import com.example.sporex_app.settings.Settings
 import com.example.sporex_app.settings.UpdateSettingsRequest
+import com.example.sporex_app.ui.alerts.VentilationScheduler
 import com.example.sporex_app.utils.setDarkMode
 import com.example.sporex_app.utils.isDarkMode
 import com.example.sporex_app.ui.navigation.BottomNavBar
@@ -61,6 +62,7 @@ fun UserSettingsScreen(
 
     var isNotificationsEnabled by remember { mutableStateOf(false) }
     var isDataPersonalisationEnabled by remember { mutableStateOf(false) }
+    var showEnvironmentDialog by remember { mutableStateOf(false) }
 
     var showAppCustomisationDialog by remember { mutableStateOf(false) }
     var showNotificationsDialog by remember { mutableStateOf(false) }
@@ -170,6 +172,10 @@ fun UserSettingsScreen(
                     showDataDialog = true
                 }
 
+                SettingsOption("Environment") {
+                    showEnvironmentDialog = true
+                }
+
                 SettingsOption("Notifications") {
                     showNotificationsDialog = true
                 }
@@ -246,6 +252,110 @@ fun UserSettingsScreen(
             }
         )
     }
+
+    fun saveVentilationSettings(
+        context: Context,
+        vents: Int,
+        humidifier: Boolean,
+        interval: Int
+    ) {
+        val prefs = context.getSharedPreferences("ventilation", Context.MODE_PRIVATE)
+
+        prefs.edit().apply {
+            putInt("vent_count", vents)
+            putBoolean("humidifier", humidifier)
+            putInt("interval", interval)
+            apply()
+        }
+
+        VentilationScheduler.schedule(context, interval)
+
+        Toast.makeText(context, "Environment settings saved", Toast.LENGTH_SHORT).show()
+    }
+
+    if (showEnvironmentDialog) {
+
+        var ventCount by remember { mutableStateOf(1) }
+        var hasHumidifier by remember { mutableStateOf(false) }
+        var reminderInterval by remember { mutableStateOf(3f) }
+
+        AlertDialog(
+            onDismissRequest = { showEnvironmentDialog = false },
+            containerColor = MaterialTheme.colorScheme.surface,
+            title = { Text("Environment Settings") },
+
+            text = {
+                Column {
+
+                    // 🌬️ Ventilation count
+                    Text("Ventilation", fontWeight = FontWeight.Bold)
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text("Number of vents/windows", modifier = Modifier.weight(1f))
+
+                        Text(ventCount.toString())
+
+                        Spacer(modifier = Modifier.width(8.dp))
+
+                        Button(onClick = { if (ventCount > 1) ventCount-- }) {
+                            Text("-")
+                        }
+
+                        Spacer(modifier = Modifier.width(4.dp))
+
+                        Button(onClick = { ventCount++ }) {
+                            Text("+")
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // 💧 Humidifier
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text("Using Humidifier", modifier = Modifier.weight(1f))
+
+                        Switch(
+                            checked = hasHumidifier,
+                            onCheckedChange = { hasHumidifier = it }
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // ⏱️ Reminder frequency
+                    Text("Reminder Frequency: ${reminderInterval.toInt()} hrs")
+
+                    Slider(
+                        value = reminderInterval,
+                        onValueChange = { reminderInterval = it },
+                        valueRange = 1f..6f,
+                        steps = 4
+                    )
+                }
+            },
+
+            confirmButton = {
+                Button(
+                    onClick = {
+                        saveVentilationSettings(
+                            context,
+                            ventCount,
+                            hasHumidifier,
+                            reminderInterval.toInt()
+                        )
+
+                        showEnvironmentDialog = false
+                    }
+                ) {
+                    Text("Save")
+                }
+            }
+        )
+    }
+
+
 
     if (showNotificationsDialog) {
         AlertDialog(

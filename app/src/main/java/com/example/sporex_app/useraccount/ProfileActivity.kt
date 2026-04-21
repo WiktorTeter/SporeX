@@ -154,7 +154,7 @@ private fun ProfileContent(
 
             // Profile Image
             Image(
-                painter = painterResource(id = R.drawable.chloekim),
+                painter = painterResource(id = R.drawable.defaultprofilepicture),
                 contentDescription = "Profile Picture",
                 modifier = Modifier
                     .fillMaxSize()

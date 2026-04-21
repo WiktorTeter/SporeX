@@ -19,6 +19,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.sporex_app.ui.alerts.VentilationScheduler
+import com.example.sporex_app.ui.alerts.NotificationItem
+import com.example.sporex_app.ui.alerts.AlertType
 import androidx.core.app.NotificationCompat
 import com.example.sporex_app.ui.navigation.BottomNavBar
 import com.example.sporex_app.ui.navigation.TopBar
@@ -31,30 +34,33 @@ class NotificationsActivity : ComponentActivity() {
     private val notificationsList = listOf(
         NotificationItem(
             title = "Air Quality Warning",
-            message = "CO₂ levels are higher than recommended. Consider ventilating the room.",
-            time = "5 mins ago"
+            message = "CO₂ levels are higher than recommended.",
+            time = "5 mins ago",
+            type = AlertType.WARNING
         ),
         NotificationItem(
             title = "Mold Detected",
-            message = "Potential mold detected on the living room wall. Check immediately.",
-            time = "12 mins ago"
+            message = "Potential mold detected.",
+            time = "12 mins ago",
+            type = AlertType.CRITICAL
         ),
         NotificationItem(
             title = "CO₂ Normalized",
-            message = "CO₂ levels have returned to a safe range. Good job ventilating!",
-            time = "1 hour ago"
-        ),
-        NotificationItem(
-            title = "Reminder: Air Check",
-            message = "Don't forget to check the air quality in your bedroom today.",
-            time = "Yesterday"
+            message = "Air is back to safe levels.",
+            time = "1 hour ago",
+            type = AlertType.INFO
         )
     )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        sendTestNotification(this)
+
+        val prefs = getSharedPreferences("ventilation", Context.MODE_PRIVATE)
+        val interval = prefs.getInt("interval", 3)
+
+        VentilationScheduler.schedule(this, interval)
+
+        VentilationScheduler.schedule(this, interval)
 
         setContent {
             SPOREX_AppTheme(darkTheme = isDarkMode(this)) {
@@ -62,7 +68,6 @@ class NotificationsActivity : ComponentActivity() {
             }
         }
     }
-
     private fun sendTestNotification(context: Context) {
 
         val channelId = "sporex_notifications"
@@ -121,7 +126,6 @@ fun NotificationCard(notification: NotificationItem) {
         modifier = Modifier
             .fillMaxWidth()
             .background(
-                // Changed from surface to primary
                 color = MaterialTheme.colorScheme.primary,
                 shape = RoundedCornerShape(12.dp)
             )
@@ -131,7 +135,6 @@ fun NotificationCard(notification: NotificationItem) {
             text = notification.title,
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
-            // Changed to onPrimary so it's readable on the green background
             color = MaterialTheme.colorScheme.onPrimary
         )
 
