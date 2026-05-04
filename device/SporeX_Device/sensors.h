@@ -8,4 +8,4 @@ struct Reading {
 };
 
 bool sensorsInit();
-bool sensorsRead(Reading &out);   // returns true only when a fresh reading was read
+bool sensorsRead(Reading &out);

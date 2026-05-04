@@ -4,3 +4,5 @@
 bool netInit();
 void netLoop();
 bool netSend(const Reading& r);
+bool netIsConnected();
+bool netIsInSetupMode();

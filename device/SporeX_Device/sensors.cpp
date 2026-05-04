@@ -24,32 +24,35 @@ bool sensorsInit() {
   Wire.setClock(100000);
 
   sensor.begin(Wire, SCD41_I2C_ADDR_62);
-
   delay(30);
 
   error = sensor.wakeUp();
   if (error != NO_ERROR) {
     errorToString(error, errorMessage, sizeof errorMessage);
-    Serial.print("wakeUp() error: "); Serial.println(errorMessage);
+    Serial.print("wakeUp() error: ");
+    Serial.println(errorMessage);
   }
 
   error = sensor.stopPeriodicMeasurement();
   if (error != NO_ERROR) {
     errorToString(error, errorMessage, sizeof errorMessage);
-    Serial.print("stopPeriodicMeasurement() error: "); Serial.println(errorMessage);
+    Serial.print("stopPeriodicMeasurement() error: ");
+    Serial.println(errorMessage);
   }
 
   error = sensor.reinit();
   if (error != NO_ERROR) {
     errorToString(error, errorMessage, sizeof errorMessage);
-    Serial.print("reinit() error: "); Serial.println(errorMessage);
+    Serial.print("reinit() error: ");
+    Serial.println(errorMessage);
   }
 
   uint64_t serialNumber = 0;
   error = sensor.getSerialNumber(serialNumber);
   if (error != NO_ERROR) {
     errorToString(error, errorMessage, sizeof errorMessage);
-    Serial.print("getSerialNumber() error: "); Serial.println(errorMessage);
+    Serial.print("getSerialNumber() error: ");
+    Serial.println(errorMessage);
     return false;
   }
 
@@ -60,7 +63,8 @@ bool sensorsInit() {
   error = sensor.startPeriodicMeasurement();
   if (error != NO_ERROR) {
     errorToString(error, errorMessage, sizeof errorMessage);
-    Serial.print("startPeriodicMeasurement() error: "); Serial.println(errorMessage);
+    Serial.print("startPeriodicMeasurement() error: ");
+    Serial.println(errorMessage);
     return false;
   }
 
@@ -74,7 +78,8 @@ bool sensorsRead(Reading &out) {
   error = sensor.getDataReadyStatus(dataReady);
   if (error != NO_ERROR) {
     errorToString(error, errorMessage, sizeof errorMessage);
-    Serial.print("getDataReadyStatus() error: "); Serial.println(errorMessage);
+    Serial.print("getDataReadyStatus() error: ");
+    Serial.println(errorMessage);
     return false;
   }
 
@@ -87,7 +92,8 @@ bool sensorsRead(Reading &out) {
   error = sensor.readMeasurement(co2, tempC, rh);
   if (error != NO_ERROR) {
     errorToString(error, errorMessage, sizeof errorMessage);
-    Serial.print("readMeasurement() error: "); Serial.println(errorMessage);
+    Serial.print("readMeasurement() error: ");
+    Serial.println(errorMessage);
     return false;
   }
 
