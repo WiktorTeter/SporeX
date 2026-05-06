@@ -1,10 +1,8 @@
 package com.example.sporex_app
 
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
-import com.example.sporex_app.ui.components.MoldResultScreen
+import com.example.sporex_app.ui.components.ResultActivity
 import com.example.sporex_app.ui.theme.SPOREX_AppTheme
 import org.junit.Rule
 import org.junit.Test
@@ -15,36 +13,74 @@ class MoldResultScreenTest {
     val composeRule = createComposeRule()
 
     @Test
-    fun moldDetected_isShown() {
+    fun mouldDetected_resultIsShown() {
         composeRule.setContent {
             SPOREX_AppTheme {
-                MoldResultScreen()
+                ResultActivity().MoldResultScreen(
+                    mouldDetected = true,
+                    maxConfidence = 0.65,
+                    imageUrl = "",
+                    message = "Prediction complete"
+                )
             }
         }
 
-        composeRule.onNodeWithText("Mold Detected").assertExists()
-        composeRule.onNodeWithText("Cladosporium – estimated 65% likelihood").assertExists()
+        composeRule.onNodeWithText("Possible Mould Detected").assertExists()
+        composeRule.onNodeWithText("Moderate confidence: 65%").assertExists()
+        composeRule.onNodeWithText("Analysis Summary").assertExists()
+        composeRule.onNodeWithText("Confidence: 65%").assertExists()
     }
 
     @Test
-    fun clickingViewDetails_performsAction() {
+    fun noMouldDetected_resultIsShown() {
         composeRule.setContent {
             SPOREX_AppTheme {
-                MoldResultScreen()
+                ResultActivity().MoldResultScreen(
+                    mouldDetected = false,
+                    maxConfidence = 0.0,
+                    imageUrl = "",
+                    message = "Prediction complete"
+                )
             }
         }
 
-        composeRule.onAllNodesWithText("View Details")[0].assertExists().performClick()
+        composeRule.onNodeWithText("No Mould Detected").assertExists()
+        composeRule.onNodeWithText("The model did not detect mould in this image.").assertExists()
+        composeRule.onNodeWithText("No mould detected. Retake if unsure.").assertExists()
     }
 
     @Test
-    fun askQuestionButton_exists() {
+    fun resultScreen_buttonsAreShown() {
         composeRule.setContent {
             SPOREX_AppTheme {
-                MoldResultScreen()
+                ResultActivity().MoldResultScreen(
+                    mouldDetected = true,
+                    maxConfidence = 0.8,
+                    imageUrl = "",
+                    message = "Prediction complete"
+                )
             }
         }
 
-        composeRule.onNodeWithText("Ask Question").assertExists()
+        composeRule.onNodeWithText("Try Another Image").assertExists()
+        composeRule.onNodeWithText("View More Remedies").assertExists()
+    }
+
+    @Test
+    fun suggestedRemedies_areShown() {
+        composeRule.setContent {
+            SPOREX_AppTheme {
+                ResultActivity().MoldResultScreen(
+                    mouldDetected = true,
+                    maxConfidence = 0.8,
+                    imageUrl = "",
+                    message = "Prediction complete"
+                )
+            }
+        }
+
+        composeRule.onNodeWithText("Suggested Remedies").assertExists()
+        composeRule.onNodeWithText("Recommended Action").assertExists()
+        composeRule.onNodeWithText("Likely mould present. Improve ventilation.").assertExists()
     }
 }

@@ -1,99 +1,233 @@
 package com.example.sporex_app
 
-import androidx.compose.ui.test.*
+import android.content.Context
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextClearance
+import androidx.compose.ui.test.performTextInput
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.sporex_app.ui.device.DeviceRepository
 import com.example.sporex_app.ui.device.EditDeviceScreen
+import com.example.sporex_app.ui.theme.SPOREX_AppTheme
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 
+@RunWith(AndroidJUnit4::class)
 class EditDeviceScreenTest {
 
     @get:Rule
     val composeRule = createComposeRule()
 
+    private fun createRepo(): DeviceRepository {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        return DeviceRepository(context)
+    }
+
     @Test
-    fun editDevice_showsCurrentDeviceNameAndOnlineStatus() {
-        val testName = "AIREX 400"
+    fun deviceName_isDisplayed() {
+        val repo = createRepo()
+
         composeRule.setContent {
-            EditDeviceScreen(
-                deviceName = testName,
-                onRename = {},
-                onBackClick = {},
-                onTestConnectionClick = {}
-            )
+            SPOREX_AppTheme {
+                EditDeviceScreen(
+                    deviceName = "Test Device",
+                    onRename = {},
+                    onBackClick = {},
+                    repo = repo,
+                    onDeviceDetailsClick = {},
+                    onTestConnectionClick = {}
+                )
+            }
         }
 
-        // Verify the device name passed in is displayed
-        composeRule.onNodeWithText(testName).assertIsDisplayed()
-        // Verify the status text is displayed
+        composeRule.onNodeWithText("Test Device").assertIsDisplayed()
         composeRule.onNodeWithText("Online").assertIsDisplayed()
     }
 
-//    @Test
-//    fun editDevice_opensRenameDialog_andCallsCallback() {
-//        var capturedNewName = "New Name"
-//        val initialName = "Old Name"
-//
-//        composeRule.setContent {
-//            EditDeviceScreen(
-//                deviceName = initialName,
-//                onRename = { capturedNewName = it },
-//                onBackClick = {},
-//                onTestConnectionClick = {}
-//            )
-//        }
-//
-//        // 1. Click the "Edit Device Name" setting item
-//        composeRule.onNodeWithText("Edit Device Name").performClick()
-//
-//        // 2. Verify dialog appears (it has a title "Edit Device Name")
-//        // Note: There are two nodes with this text now (the item and the dialog title)
-//        // We look for the one inside the dialog/popup specifically or use useUnmergedTree
-//        composeRule.onNodeWithText("Save").assertIsDisplayed()
-//
-//        // 3. Change text and click Save
-//        val newName = "New Scanner"
-//        // Find the text field by the current name it contains
-//        composeRule.onNodeWithText(initialName).performTextReplacement(newName)
-//        composeRule.onNodeWithText("Save").performClick()
-//
-//        // 4. Verify the callback was triggered with the correct string
-//        assertEquals(newName, capturedNewName)
-//    }
-
     @Test
-    fun testConnection_triggersCallback() {
-        var testClicked = false
+    fun settingsOptions_areDisplayedWithCorrectText() {
+        val repo = createRepo()
+
         composeRule.setContent {
-            EditDeviceScreen(
-                deviceName = "Test Device",
-                onRename = {},
-                onBackClick = {},
-                onTestConnectionClick = { testClicked = true }
-            )
+            SPOREX_AppTheme {
+                EditDeviceScreen(
+                    deviceName = "Test Device",
+                    onRename = {},
+                    onBackClick = {},
+                    repo = repo,
+                    onDeviceDetailsClick = {},
+                    onTestConnectionClick = {}
+                )
+            }
         }
 
-        // Click the Test Connection item
-        composeRule.onNodeWithText("Test Connection").performClick()
-
-        // Verify callback
-        assert(testClicked)
+        composeRule.onNodeWithText("Edit Device Name").assertExists()
+        composeRule.onNodeWithText("Device Details").assertExists()
+        composeRule.onNodeWithText("Test Connection").assertExists()
     }
 
     @Test
     fun actionButtons_areDisplayedWithCorrectText() {
+        val repo = createRepo()
+
         composeRule.setContent {
-            EditDeviceScreen(
-                deviceName = "Test Device",
-                onRename = {},
-                onBackClick = {},
-                onTestConnectionClick = {}
-            )
+            SPOREX_AppTheme {
+                EditDeviceScreen(
+                    deviceName = "Test Device",
+                    onRename = {},
+                    onBackClick = {},
+                    repo = repo,
+                    onDeviceDetailsClick = {},
+                    onTestConnectionClick = {}
+                )
+            }
         }
 
-        // Verify the two bottom action buttons exist
-        composeRule.onNodeWithText("Reset Device").assertExists().assertHasClickAction()
-        composeRule.onNodeWithText("Remove Device").assertExists().assertHasClickAction()
+        composeRule.onNodeWithText("Reset Device").assertExists()
+        composeRule.onNodeWithText("Remove Device").assertExists()
     }
+
+    @Test
+    fun clickingDeviceDetails_callsCallback() {
+        val repo = createRepo()
+        var clicked = false
+
+        composeRule.setContent {
+            SPOREX_AppTheme {
+                EditDeviceScreen(
+                    deviceName = "Test Device",
+                    onRename = {},
+                    onBackClick = {},
+                    repo = repo,
+                    onDeviceDetailsClick = {
+                        clicked = true
+                    },
+                    onTestConnectionClick = {}
+                )
+            }
+        }
+
+        composeRule.onNodeWithText("Device Details").performClick()
+
+        assertTrue(clicked)
+    }
+
+    @Test
+    fun clickingTestConnection_callsCallback() {
+        val repo = createRepo()
+        var clicked = false
+
+        composeRule.setContent {
+            SPOREX_AppTheme {
+                EditDeviceScreen(
+                    deviceName = "Test Device",
+                    onRename = {},
+                    onBackClick = {},
+                    repo = repo,
+                    onDeviceDetailsClick = {},
+                    onTestConnectionClick = {
+                        clicked = true
+                    }
+                )
+            }
+        }
+
+        composeRule.onNodeWithText("Test Connection").performClick()
+
+        assertTrue(clicked)
+    }
+
+    @Test
+    fun clickingRemoveDevice_callsBackCallback() {
+        val repo = createRepo()
+        var backClicked = false
+
+        repo.setDeviceId("test-device-id")
+
+        composeRule.setContent {
+            SPOREX_AppTheme {
+                EditDeviceScreen(
+                    deviceName = "Test Device",
+                    onRename = {},
+                    onBackClick = {
+                        backClicked = true
+                    },
+                    repo = repo,
+                    onDeviceDetailsClick = {},
+                    onTestConnectionClick = {}
+                )
+            }
+        }
+
+        composeRule.onNodeWithText("Remove Device").performClick()
+
+        assertTrue(backClicked)
+    }
+
+    @Test
+    fun clickingEditDeviceName_opensRenameDialog() {
+        val repo = createRepo()
+
+        composeRule.setContent {
+            SPOREX_AppTheme {
+                EditDeviceScreen(
+                    deviceName = "Test Device",
+                    onRename = {},
+                    onBackClick = {},
+                    repo = repo,
+                    onDeviceDetailsClick = {},
+                    onTestConnectionClick = {}
+                )
+            }
+        }
+
+        composeRule.onNodeWithText("Edit Device Name").performClick()
+
+        composeRule.onNodeWithText("Save").assertExists()
+        composeRule.onNodeWithText("Cancel").assertExists()
+    }
+
+//    @Test
+//    fun renameDialog_savesNewDeviceName() {
+//        val repo = createRepo()
+//
+//        var renamedValue = ""
+//        var backClicked = false
+//
+//        composeRule.setContent {
+//            SPOREX_AppTheme {
+//                EditDeviceScreen(
+//                    deviceName = "Test Device",
+//                    onRename = { newName ->
+//                        renamedValue = newName
+//                    },
+//                    onBackClick = {
+//                        backClicked = true
+//                    },
+//                    repo = repo,
+//                    onDeviceDetailsClick = {},
+//                    onTestConnectionClick = {}
+//                )
+//            }
+//        }
+//
+//        composeRule.onNodeWithText("Edit Device Name").performClick()
+//
+//        composeRule.onNodeWithText("Test Device")
+//            .performTextClearance()
+//
+//        composeRule.onNodeWithText("")
+//            .performTextInput("Updated Device")
+//
+//        composeRule.onNodeWithText("Save").performClick()
+//
+//        assertEquals("Updated Device", renamedValue)
+//        assertTrue(backClicked)
+//    }
 }

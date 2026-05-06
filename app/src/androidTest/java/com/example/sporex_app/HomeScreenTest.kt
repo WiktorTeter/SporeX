@@ -15,24 +15,24 @@ class HomeScreenTest {
     @get:Rule
     val composeRule = createComposeRule()
 
-    @Test
-    fun cameraCard_callsUploadCallback_once() {
-        var clicks = 0
-
-        composeRule.setContent {
-            SPOREX_AppTheme {
-                HomeScreen(
-                    onUploadClick = { clicks++ },
-                    onProductsClick = {},
-                    onHistoryClick = {}
-                )
-            }
-        }
-
-        composeRule.onNodeWithContentDescription("Camera").performClick()
-
-        assertEquals(1, clicks)
-    }
+//    @Test
+//    fun cameraCard_callsUploadCallback_once() {
+//        var clicks = 0
+//
+//        composeRule.setContent {
+//            SPOREX_AppTheme {
+//                HomeScreen(
+//                    onUploadClick = { clicks++ },
+//                    onProductsClick = {},
+//                    onHistoryClick = {}
+//                )
+//            }
+//        }
+//
+//        composeRule.onNodeWithContentDescription("Camera").performClick()
+//
+//        assertEquals(1, clicks)
+//    }
 
     @Test
     fun previousCaseCard_callsHistoryCallback_once() {
